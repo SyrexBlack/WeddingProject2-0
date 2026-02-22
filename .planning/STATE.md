@@ -3,14 +3,14 @@
 **Проект:** Wedding Invitation (Свадебная визитка)
 **Текущая фаза:** 5 — Polish & Deploy (Полировка и деплой)
 **Текущий план:** Plan 2 of 3 complete
-**Статус:** In Progress
+**Статус:** In Progress (Plan 01 + 02 done)
 
 ## Ссылки на проект
 
 См.: .planning/PROJECT.md (обновлён 2026-02-22)
 
 **Основная ценность:** Гость открывает ссылку из мессенджера, видит красивое приглашение и подтверждает участие в один клик.
-**Текущий фокус:** Phase 5 in progress — 320px mobile viewport fixes complete (Plan 02)
+**Текущий фокус:** Phase 5 in progress — OG image + Hero optimization (Plan 01) and 320px fixes (Plan 02) complete, Plan 03 remaining
 
 ## Прогресс по фазам
 
@@ -20,7 +20,7 @@
 | 2. Static Sections (Статические секции) | ● Complete | 2/2 done |
 | 3. Dynamic Components (Динамические компоненты) | ● Complete | 2/2 done |
 | 4. External Integrations (Внешние интеграции) | ● Complete | 2/2 done |
-| 5. Polish & Deploy (Полировка и деплой) | ◐ In Progress | 1/3 done |
+| 5. Polish & Deploy (Полировка и деплой) | ◐ In Progress | 2/3 done |
 | 6. Enhanced Features (Расширенные фичи) | ○ Pending | — |
 
 ## Решения
@@ -60,6 +60,9 @@
 | Фиксированные размеры шрифтов через breakpoints | text-2xl md:text-5xl вместо fluid typography | 2026-02-22 |
 | Карта 200px mobile / 350px desktop | Tailwind h-[200px] md:h-[350px] вместо HTML height | 2026-02-22 |
 | overflow-x hidden на body | Safety net от случайного горизонтального скролла | 2026-02-22 |
+| System serif для OG-изображения | Edge runtime не грузит кастомные шрифты надёжно, serif fallback для Cyrillic | 2026-02-22 |
+| Static import для blur placeholder | import из public/ вместо URL — автоматическая генерация blurDataURL | 2026-02-22 |
+| metadataBase на vercel.app | Временный URL для абсолютных OG-путей, обновится после деплоя | 2026-02-22 |
 
 ## Блокеры
 
@@ -102,8 +105,9 @@
 | 04-01 | 2 min | 2 | 4 |
 | 04-02 | 3 min | 2 | 2 |
 | 05-02 | 3 min | 2 | 7 |
+| 05-01 | 4 min | 2 | 5 |
 
 ---
-*Последнее обновление: 2026-02-22 после 05-02-PLAN.md*
-*Остановлено на: Completed 05-02-PLAN.md*
+*Последнее обновление: 2026-02-22 после 05-01-PLAN.md*
+*Остановлено на: Completed 05-01-PLAN.md*
 *Файл для продолжения: 05-03-PLAN.md*
