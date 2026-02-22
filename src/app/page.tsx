@@ -7,11 +7,8 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { InfoSection } from '@/components/sections/InfoSection';
 import { DresscodeSection } from '@/components/sections/DresscodeSection';
 import { FooterSection } from '@/components/sections/FooterSection';
-import {
-  countdownData,
-  timelineData,
-  sectionOrder,
-} from '@/lib/constants';
+import { TimelineSection } from '@/components/sections/TimelineSection';
+
 
 export default function Home() {
   return (
@@ -34,24 +31,7 @@ export default function Home() {
         <InfoSection />
 
         {/* 4. Timeline — «Как пройдёт наш день» */}
-        <AnimatedSection id="timeline" className="py-16">
-          <Container>
-            <SectionHeading>Как пройдёт наш день</SectionHeading>
-            <div className="mt-8 space-y-4">
-              {timelineData.map((event, i) => (
-                <div key={i} className="flex items-center gap-4">
-                  <span className="text-alexandrite font-medium w-16">
-                    {event.time}
-                  </span>
-                  <span>{event.title}</span>
-                </div>
-              ))}
-            </div>
-            <p className="text-sm opacity-40 mt-4">
-              Полный таймлайн с зигзагом будет в Phase 2 Plan 02
-            </p>
-          </Container>
-        </AnimatedSection>
+        <TimelineSection />
 
         {/* 5. Dress code — «Дресс-код» */}
         <DresscodeSection />
