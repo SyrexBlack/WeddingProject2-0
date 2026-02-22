@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
 
 type AnimationVariant = 'fade-up' | 'fade-in' | 'fade-left' | 'fade-right';
@@ -27,6 +27,7 @@ const variantAnimate = { opacity: 1, y: 0, x: 0 };
 /**
  * Framer Motion wrapper for scroll-triggered animations.
  * Per CONTEXT.md: fade-up default, 4 variants, slow ~0.9s, triggers every scroll.
+ * When prefers-reduced-motion is set: renders plain div, content immediately visible.
  */
 export function AnimatedSection({
   children,
@@ -35,6 +36,17 @@ export function AnimatedSection({
   delay = 0,
   id,
 }: AnimatedSectionProps) {
+  const prefersReducedMotion = useReducedMotion();
+
+  // prefers-reduced-motion: render static div, no animation whatsoever
+  if (prefersReducedMotion) {
+    return (
+      <div id={id} className={className}>
+        {children}
+      </div>
+    );
+  }
+
   return (
     <motion.div
       id={id}
