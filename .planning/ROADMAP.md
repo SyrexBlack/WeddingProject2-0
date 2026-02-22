@@ -12,7 +12,7 @@
 | 1 | Foundation (Фундамент) | Инициализированный проект Next.js 15 с типами, константами и базовыми UI-компонентами | FOUND-01..05 | 3/3 | Complete |
 | 2 | Static Sections (Статические секции) | Все информационные секции страницы отображают контент из constants.ts | CONT-01,03,04,05,07 | 0/2 | Planned |
 | 3 | 2/2 | Complete   | 2026-02-22 | 0/2 | Planned |
-| 4 | External Integrations (Внешние интеграции) | Работающая карта и RSVP-форма с отправкой данных | INTER-01..04 | TBD | Pending |
+| 4 | External Integrations (Внешние интеграции) | Работающая карта и RSVP-форма с отправкой данных | INTER-01..04 | 2/2 | Planned |
 | 5 | Polish & Deploy (Полировка и деплой) | Оптимизированный, задеплоенный сайт с рабочими OG-тегами | DEPLOY-01..05 | TBD | Pending |
 | 6 | Enhanced Features (Расширенные фичи) | Дифференциаторы, делающие приглашение запоминающимся | ENHANCE-01..07 | TBD | Pending |
 
@@ -93,7 +93,11 @@ Plans:
 **Цель:** Работающая карта Яндекс.Карт и RSVP-форма с отправкой данных через EmailJS
 **Зависит от:** Phase 1 (типы, env-переменные, базовая структура)
 **Требования:** INTER-01, INTER-02, INTER-03, INTER-04
-**Планы:** TBD
+**Планы:** 2 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Install @emailjs/browser, env template, MapSection with Yandex Maps iframe
+- [ ] 04-02-PLAN.md — RSVPSection with form, EmailJS integration, page.tsx assembly
 
 **Критерии успеха (что должно быть ИСТИНОЙ):**
 1. Карта Яндекс.Карт (iframe) показывает место проведения свадьбы с маркером
@@ -191,7 +195,7 @@ Phase 1 (Фундамент)
 | 1. Foundation | 3/3 | Complete | 2026-02-22 |
 | 2. Static Sections | 2/2 | Planned | — |
 | 3. Dynamic Components | 0/2 | Planned | — |
-| 4. External Integrations | 0/? | Не начата | — |
+| 4. External Integrations | 2/2 | Planned | — |
 | 5. Polish & Deploy | 0/? | Не начата | — |
 | 6. Enhanced Features | 0/? | Не начата | — |
 
