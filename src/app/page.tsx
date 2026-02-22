@@ -1,16 +1,15 @@
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { SectionDots } from '@/components/SectionDots';
+import { HeroSection } from '@/components/sections/HeroSection';
+import { InfoSection } from '@/components/sections/InfoSection';
+import { DresscodeSection } from '@/components/sections/DresscodeSection';
+import { FooterSection } from '@/components/sections/FooterSection';
 import {
-  heroData,
   countdownData,
-  infoCards,
   timelineData,
-  dressCodeData,
-  footerData,
   sectionOrder,
 } from '@/lib/constants';
 
@@ -19,20 +18,8 @@ export default function Home() {
     <>
       <SectionDots />
       <main>
-        {/* 1. Hero section — full screen placeholder */}
-        <section
-          id="hero"
-          className="h-screen flex items-center justify-center bg-chocolate/10 relative"
-        >
-          <div className="text-center">
-            <h1 className="text-5xl sm:text-7xl mb-4">{heroData.coupleNames}</h1>
-            <p className="text-xl sm:text-2xl mb-2">{heroData.date}</p>
-            <p className="text-lg opacity-70">{heroData.invitationPhrase}</p>
-          </div>
-          <p className="absolute bottom-4 text-sm opacity-40">
-            Hero фото будет добавлено в Phase 2
-          </p>
-        </section>
+        {/* 1. Hero section */}
+        <HeroSection />
 
         {/* 2. Countdown — no heading per CONTEXT.md */}
         <AnimatedSection id="countdown" className="py-16">
@@ -44,23 +31,7 @@ export default function Home() {
         </AnimatedSection>
 
         {/* 3. Info — «О торжестве» */}
-        <AnimatedSection id="info" className="py-16">
-          <Container>
-            <SectionHeading>О торжестве</SectionHeading>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
-              {infoCards.map((card) => (
-                <Card key={card.type}>
-                  <h3 className="text-xl font-medium mb-2">{card.title}</h3>
-                  {card.lines.map((line, i) => (
-                    <p key={i} className="opacity-80">
-                      {line}
-                    </p>
-                  ))}
-                </Card>
-              ))}
-            </div>
-          </Container>
-        </AnimatedSection>
+        <InfoSection />
 
         {/* 4. Timeline — «Как пройдёт наш день» */}
         <AnimatedSection id="timeline" className="py-16">
@@ -77,29 +48,13 @@ export default function Home() {
               ))}
             </div>
             <p className="text-sm opacity-40 mt-4">
-              Полный таймлайн с зигзагом будет в Phase 2
+              Полный таймлайн с зигзагом будет в Phase 2 Plan 02
             </p>
           </Container>
         </AnimatedSection>
 
         {/* 5. Dress code — «Дресс-код» */}
-        <AnimatedSection id="dresscode" className="py-16">
-          <Container>
-            <SectionHeading>Дресс-код</SectionHeading>
-            <p className="text-center mt-6 mb-4">{dressCodeData.description}</p>
-            <div className="flex justify-center gap-4">
-              {dressCodeData.palette.map((swatch) => (
-                <div key={swatch.name} className="text-center">
-                  <div
-                    className="w-10 h-10 rounded-full mx-auto mb-1"
-                    style={{ backgroundColor: swatch.color }}
-                  />
-                  <span className="text-xs opacity-70">{swatch.name}</span>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </AnimatedSection>
+        <DresscodeSection />
 
         {/* 6. RSVP — «Ждём вашего ответа» */}
         <AnimatedSection id="rsvp" className="py-16">
@@ -130,9 +85,7 @@ export default function Home() {
         </AnimatedSection>
 
         {/* 8. Footer */}
-        <footer id="footer" className="py-8 text-center opacity-60">
-          <p>{footerData.text}</p>
-        </footer>
+        <FooterSection />
       </main>
     </>
   );
