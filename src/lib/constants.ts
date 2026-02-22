@@ -25,6 +25,7 @@ import type {
 export const heroData: HeroData = {
   coupleNames: 'Анна & Михаил',
   date: '15 августа 2026',
+  venue: 'Усадьба «Архангельское»',
   invitationPhrase: 'Приглашаем вас разделить с нами этот особенный день',
   backgroundImageDesktop: '/images/hero-desktop.jpg',
   backgroundImageMobile: '/images/hero-mobile.jpg',

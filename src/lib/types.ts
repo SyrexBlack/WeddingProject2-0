@@ -30,6 +30,8 @@ export interface HeroData {
   coupleNames: string;
   /** Дата свадьбы прописью: «15 августа 2026» */
   date: string;
+  /** Название места проведения */
+  venue: string;
   /** Поэтичная фраза-приглашение */
   invitationPhrase: string;
   /** Путь к фото для десктопа */

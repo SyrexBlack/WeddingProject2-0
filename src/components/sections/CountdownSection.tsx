@@ -40,13 +40,13 @@ interface TimeUnit {
 function CountdownCard({ value, labels, reducedMotion }: TimeUnit & { reducedMotion: boolean }) {
   if (reducedMotion) {
     return (
-      <div className="bg-white/80 rounded-card shadow-sm p-4 md:p-6 border border-alexandrite-light flex flex-col items-center justify-center min-w-0">
-        <div className="text-3xl md:text-5xl font-calmius text-alexandrite font-semibold leading-none">
+      <div className="bg-white/90 rounded-xl shadow-card p-5 md:p-7 border border-alexandrite/10 backdrop-blur-sm flex flex-col items-center justify-center min-w-0">
+        <div className="text-4xl md:text-6xl font-calmius text-alexandrite font-semibold leading-none tabular-nums">
           <span className="inline-block" suppressHydrationWarning>
             {value}
           </span>
         </div>
-        <span className="text-sm text-chocolate/60 mt-1">
+        <span className="uppercase tracking-widest text-xs text-chocolate/60 mt-1">
           {pluralize(value, ...labels)}
         </span>
       </div>
@@ -56,10 +56,10 @@ function CountdownCard({ value, labels, reducedMotion }: TimeUnit & { reducedMot
   return (
     <motion.div
       variants={cardVariants}
-      className="bg-white/80 rounded-card shadow-sm p-4 md:p-6 border border-alexandrite-light flex flex-col items-center justify-center min-w-0"
+      className="bg-white/90 rounded-xl shadow-card p-5 md:p-7 border border-alexandrite/10 backdrop-blur-sm flex flex-col items-center justify-center min-w-0"
     >
       {/* Число с fade-анимацией при смене */}
-      <div className="text-3xl md:text-5xl font-calmius text-alexandrite font-semibold leading-none">
+      <div className="text-4xl md:text-6xl font-calmius text-alexandrite font-semibold leading-none tabular-nums">
         <AnimatePresence mode="wait">
           <motion.span
             key={value}
@@ -76,7 +76,7 @@ function CountdownCard({ value, labels, reducedMotion }: TimeUnit & { reducedMot
       </div>
 
       {/* Подпись — русская плюрализация */}
-      <span className="text-sm text-chocolate/60 mt-1">
+      <span className="uppercase tracking-widest text-xs text-chocolate/60 mt-1">
         {pluralize(value, ...labels)}
       </span>
     </motion.div>
@@ -137,16 +137,16 @@ export function CountdownSection() {
   ];
 
   return (
-    <ParallaxSection id="countdown" className="py-16" speed={0.5}>
+    <ParallaxSection id="countdown" className="py-20 md:py-28" speed={0.5}>
       <Container>
-        <SectionHeading>До нашего дня</SectionHeading>
+        <SectionHeading subtitle="До самого важного дня">До нашего дня</SectionHeading>
 
         <div className="mt-8">
           {isExpired ? (
             <ExpiredMessage reducedMotion={reducedMotion} />
           ) : reducedMotion ? (
             /* Reduced motion: plain div grid, no stagger, no animation */
-            <div className="grid grid-cols-2 gap-3 sm:flex sm:justify-center sm:gap-6">
+            <div className="grid grid-cols-4 gap-3 md:gap-5 max-w-lg mx-auto">
               {timeUnits.map((unit) => (
                 <CountdownCard
                   key={unit.labels[0]}
@@ -163,7 +163,7 @@ export function CountdownSection() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              className="grid grid-cols-2 gap-3 sm:flex sm:justify-center sm:gap-6"
+              className="grid grid-cols-4 gap-3 md:gap-5 max-w-lg mx-auto"
             >
               {timeUnits.map((unit) => (
                 <CountdownCard
