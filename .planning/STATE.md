@@ -94,6 +94,6 @@
 | 03-02 | 2 min | 2 | 5 |
 
 ---
-*Последнее обновление: 2026-02-22 после 03-02 parallax & reduced-motion*
-*Остановлено на: Completed 03-02-PLAN.md — Phase 3 complete*
-*Файл для продолжения: Phase 4 planning*
+*Последнее обновление: 2026-02-22 после Phase 4 context gathered*
+*Остановлено на: Phase 4 context gathered*
+*Файл для продолжения: .planning/phases/04-external-integrations/04-CONTEXT.md*
