@@ -2,7 +2,6 @@ import { timelineData } from '@/lib/constants';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
-import { Card } from '@/components/ui/Card';
 import {
   Wine,
   Heart,
@@ -23,26 +22,25 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 /**
- * Timeline section — "Как пройдёт наш день" with zigzag layout.
- * Per CONTEXT.md: events alternate left-right on desktop, collapse to single column on mobile.
- * Each event has a unique Lucide icon in a bordered circle on the vertical line.
+ * Timeline section — "Как пройдёт наш день" with premium zigzag layout.
+ * Gradient vertical line, elegant icon circles, custom card styling.
  */
 export function TimelineSection() {
   return (
-    <AnimatedSection id="timeline" className="py-16">
+    <AnimatedSection id="timeline" className="py-20 md:py-28">
       <Container>
         <SectionHeading>Как пройдёт наш день</SectionHeading>
 
         {/* Timeline container */}
         <div className="relative mt-12">
-          {/* Vertical line — desktop: centered, mobile: left */}
+          {/* Vertical line — gradient that fades at ends */}
           <div
-            className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-alexandrite"
+            className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-alexandrite/40 to-transparent"
             aria-hidden="true"
           />
 
           {/* Events */}
-          <div className="space-y-8 md:space-y-12">
+          <div className="space-y-8 md:space-y-16">
             {timelineData.map((event, index) => {
               const Icon = iconMap[event.title] ?? Circle;
               const isLeft = index % 2 === 0;
@@ -51,23 +49,22 @@ export function TimelineSection() {
                 <div key={index} className="relative">
                   {/* Icon circle on the line */}
                   <div
-                    className="absolute left-4 md:left-1/2 -translate-x-1/2 z-10 w-8 h-8 bg-white border-2 border-alexandrite rounded-full flex items-center justify-center shadow-sm"
+                    className="absolute left-4 md:left-1/2 -translate-x-1/2 z-10 w-10 h-10 bg-white border-2 border-alexandrite rounded-full flex items-center justify-center shadow-sm"
                   >
-                    <Icon size={16} className="text-alexandrite" strokeWidth={1.5} />
+                    <Icon size={18} className="text-alexandrite" strokeWidth={1.5} />
                   </div>
 
-                  {/* Event content — mobile: always right of line; desktop: alternating */}
-                  {/* Mobile layout */}
-                  <div className="md:hidden ml-10">
-                    <Card>
-                      <span className="text-alexandrite font-medium text-sm">
+                  {/* Event content — mobile: always right of line */}
+                  <div className="md:hidden ml-12">
+                    <div className="bg-white/80 rounded-lg p-4 shadow-sm border border-chocolate/5 transition-all duration-300 hover:shadow-card">
+                      <span className="text-alexandrite font-medium text-sm tracking-wide uppercase">
                         {event.time}
                       </span>
-                      <h3 className="text-base md:text-lg font-medium mt-1">{event.title}</h3>
+                      <h3 className="text-lg font-calmius font-medium mt-1">{event.title}</h3>
                       {event.description && (
-                        <p className="text-sm opacity-70 mt-1">{event.description}</p>
+                        <p className="text-sm opacity-60 mt-1 leading-relaxed">{event.description}</p>
                       )}
-                    </Card>
+                    </div>
                   </div>
 
                   {/* Desktop layout — zigzag */}
@@ -76,15 +73,15 @@ export function TimelineSection() {
                       <>
                         {/* Content on left */}
                         <div className="w-1/2 pr-10 text-right">
-                          <Card>
-                            <span className="text-alexandrite font-medium text-sm">
+                          <div className="bg-white/80 rounded-lg p-4 md:p-5 shadow-sm border border-chocolate/5 transition-all duration-300 hover:shadow-card">
+                            <span className="text-alexandrite font-medium text-sm tracking-wide uppercase">
                               {event.time}
                             </span>
-                            <h3 className="text-lg font-medium mt-1">{event.title}</h3>
+                            <h3 className="text-lg md:text-xl font-calmius font-medium mt-1">{event.title}</h3>
                             {event.description && (
-                              <p className="text-sm opacity-70 mt-1">{event.description}</p>
+                              <p className="text-sm opacity-60 mt-1 leading-relaxed">{event.description}</p>
                             )}
-                          </Card>
+                          </div>
                         </div>
                         {/* Empty right side */}
                         <div className="w-1/2" />
@@ -95,15 +92,15 @@ export function TimelineSection() {
                         <div className="w-1/2" />
                         {/* Content on right */}
                         <div className="w-1/2 pl-10">
-                          <Card>
-                            <span className="text-alexandrite font-medium text-sm">
+                          <div className="bg-white/80 rounded-lg p-4 md:p-5 shadow-sm border border-chocolate/5 transition-all duration-300 hover:shadow-card">
+                            <span className="text-alexandrite font-medium text-sm tracking-wide uppercase">
                               {event.time}
                             </span>
-                            <h3 className="text-lg font-medium mt-1">{event.title}</h3>
+                            <h3 className="text-lg md:text-xl font-calmius font-medium mt-1">{event.title}</h3>
                             {event.description && (
-                              <p className="text-sm opacity-70 mt-1">{event.description}</p>
+                              <p className="text-sm opacity-60 mt-1 leading-relaxed">{event.description}</p>
                             )}
-                          </Card>
+                          </div>
                         </div>
                       </>
                     )}

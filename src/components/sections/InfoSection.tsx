@@ -12,29 +12,30 @@ const iconMap = {
 } as const;
 
 /**
- * Info section — "О торжестве" with stacked cards for "Когда" and "Где".
- * Per CONTEXT.md: single column, large centered Lucide icons above titles.
+ * Info section — "О торжестве" with two-column card layout.
+ * Warmer, more inviting design with decorative accents and serif titles.
  */
 export function InfoSection() {
   return (
-    <AnimatedSection id="info" className="py-16">
+    <AnimatedSection id="info" className="py-20 md:py-28">
       <Container>
-        <SectionHeading>О торжестве</SectionHeading>
-        <div className="space-y-6 mt-8">
+        <SectionHeading subtitle="Мы будем рады видеть вас">О торжестве</SectionHeading>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
           {infoCards.map((card) => {
             const Icon = iconMap[card.type];
             return (
               <Card key={card.type}>
+                <div className="w-12 h-[2px] bg-alexandrite/30 mx-auto mb-5" />
                 <Icon
-                  size={44}
-                  className="text-alexandrite mx-auto mb-4"
+                  size={36}
+                  className="text-alexandrite mx-auto mb-4 opacity-70"
                   strokeWidth={1.5}
                 />
-                <h3 className="text-lg md:text-xl font-medium text-center mb-2">
+                <h3 className="text-xl md:text-2xl font-calmius font-medium text-center mb-2">
                   {card.title}
                 </h3>
                 {card.lines.map((line, i) => (
-                  <p key={i} className="text-center opacity-80">
+                  <p key={i} className="text-center opacity-80 leading-relaxed">
                     {line}
                   </p>
                 ))}
