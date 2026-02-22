@@ -7,6 +7,7 @@ import { TimelineSection } from '@/components/sections/TimelineSection';
 import { CountdownSection } from '@/components/sections/CountdownSection';
 import { MapSection } from '@/components/sections/MapSection';
 import { RSVPSection } from '@/components/sections/RSVPSection';
+import { SectionDivider } from '@/components/ui/SectionDivider';
 
 
 export default function Home() {
@@ -18,22 +19,44 @@ export default function Home() {
         <HeroSection />
 
         {/* 2. Countdown — live countdown to wedding date */}
-        <CountdownSection />
+        <div className="section-cream">
+          <CountdownSection />
+        </div>
+
+        <SectionDivider variant="leaf" />
 
         {/* 3. Info — «О торжестве» */}
-        <InfoSection />
+        <div className="section-sand">
+          <InfoSection />
+        </div>
+
+        <SectionDivider variant="dot" />
 
         {/* 4. Timeline — «Как пройдёт наш день» */}
-        <TimelineSection />
+        <div className="section-cream">
+          <TimelineSection />
+        </div>
+
+        <SectionDivider variant="leaf" />
 
         {/* 5. Dress code — «Дресс-код» */}
-        <DresscodeSection />
+        <div className="section-sage">
+          <DresscodeSection />
+        </div>
+
+        <SectionDivider variant="dot" />
 
         {/* 6. RSVP — «Ждём вашего ответа» */}
-        <RSVPSection />
+        <div className="section-cream">
+          <RSVPSection />
+        </div>
+
+        <SectionDivider variant="line" />
 
         {/* 7. Map — «Место проведения» */}
-        <MapSection />
+        <div className="section-sand">
+          <MapSection />
+        </div>
 
         {/* 8. Footer */}
         <FooterSection />

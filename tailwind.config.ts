@@ -23,16 +23,24 @@ const config: Config = {
           dark: '#FFF5E9',
         },
         sand: '#F5E6D3',
+        sage: 'rgba(89, 140, 116, 0.06)',
+        champagne: '#D4C5A9',
+        powder: '#E8D5C4',
         error: '#C4463A',
       },
       fontFamily: {
         calmius: ['var(--font-calmius)', 'serif'],
+        accent: ['var(--font-calmius)', 'serif'],
       },
       borderRadius: {
         card: '10px',
       },
       maxWidth: {
         content: '768px',
+      },
+      boxShadow: {
+        card: '0 2px 16px rgba(60, 21, 24, 0.06)',
+        cardHover: '0 4px 24px rgba(60, 21, 24, 0.1)',
       },
     },
   },
