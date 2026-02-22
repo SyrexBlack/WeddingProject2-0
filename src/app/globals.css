@@ -29,6 +29,7 @@ body {
   color: var(--color-chocolate);
   font-size: 18px;
   line-height: 1.6;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -30,7 +30,7 @@ export function InfoSection() {
                   className="text-alexandrite mx-auto mb-4"
                   strokeWidth={1.5}
                 />
-                <h3 className="text-xl font-medium text-center mb-2">
+                <h3 className="text-lg md:text-xl font-medium text-center mb-2">
                   {card.title}
                 </h3>
                 {card.lines.map((line, i) => (

@@ -13,10 +13,10 @@ export function DresscodeSection() {
     <AnimatedSection id="dresscode" className="py-16">
       <Container>
         <SectionHeading>Дресс-код</SectionHeading>
-        <p className="text-center mt-6 mb-8 text-lg">
+        <p className="text-center mt-6 mb-8 text-base md:text-lg">
           {dressCodeData.description}
         </p>
-        <div className="flex justify-center gap-6 flex-wrap">
+        <div className="flex justify-center gap-4 md:gap-6 flex-wrap">
           {dressCodeData.palette.map((swatch) => (
             <div key={swatch.name} className="text-center">
               <div

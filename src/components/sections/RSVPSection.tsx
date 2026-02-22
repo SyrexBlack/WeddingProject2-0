@@ -263,17 +263,17 @@ export function RSVPSection() {
                     <p className="text-sm font-calmius text-chocolate mb-3">
                       Вы уже отправляли ответ. Отправить новый?
                     </p>
-                    <div className="flex gap-3 justify-center">
+                    <div className="flex flex-wrap gap-3 justify-center">
                       <button
                         type="submit"
-                        className="px-4 py-2 rounded-card bg-alexandrite text-white font-calmius text-sm transition-colors hover:bg-alexandrite/85"
+                        className="px-3 py-2 rounded-card bg-alexandrite text-white font-calmius text-xs md:text-sm transition-colors hover:bg-alexandrite/85"
                       >
                         Да, отправить
                       </button>
                       <button
                         type="button"
                         onClick={() => setShowConfirmResubmit(false)}
-                        className="px-4 py-2 rounded-card border border-alexandrite/30 text-chocolate/70 font-calmius text-sm transition-colors hover:border-alexandrite/50"
+                        className="px-3 py-2 rounded-card border border-alexandrite/30 text-chocolate/70 font-calmius text-xs md:text-sm transition-colors hover:border-alexandrite/50"
                       >
                         Отмена
                       </button>
@@ -286,7 +286,7 @@ export function RSVPSection() {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full mt-1 py-3 px-8 text-lg inline-flex items-center justify-center rounded-card font-calmius transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-alexandrite/50 focus:ring-offset-2 bg-alexandrite text-white hover:bg-alexandrite/85 border border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full mt-1 py-3 px-6 text-base md:text-lg inline-flex items-center justify-center rounded-card font-calmius transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-alexandrite/50 focus:ring-offset-2 bg-alexandrite text-white hover:bg-alexandrite/85 border border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <>

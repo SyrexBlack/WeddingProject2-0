@@ -23,11 +23,10 @@ export function MapSection() {
           <iframe
             src={mapData.iframeSrc}
             width="100%"
-            height="400"
             frameBorder="0"
             allowFullScreen
             title="Карта места проведения"
-            className="block"
+            className="block w-full h-[200px] md:h-[350px]"
           />
         </div>
 
