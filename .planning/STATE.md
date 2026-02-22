@@ -2,7 +2,7 @@
 
 **Проект:** Wedding Invitation (Свадебная визитка)
 **Текущая фаза:** 1 — Foundation (Фундамент)
-**Текущий план:** Plan 2 of 3 in Phase 1
+**Текущий план:** Plan 3 of 3 in Phase 1
 **Статус:** In Progress
 
 ## Ссылки на проект
@@ -16,7 +16,7 @@
 
 | Фаза | Статус | Планы |
 |------|--------|-------|
-| 1. Foundation (Фундамент) | ◐ In Progress | 1/3 done |
+| 1. Foundation (Фундамент) | ◐ In Progress | 2/3 done |
 | 2. Static Sections (Статические секции) | ○ Pending | — |
 | 3. Dynamic Components (Динамические компоненты) | ○ Pending | — |
 | 4. External Integrations (Внешние интеграции) | ○ Pending | — |
@@ -36,6 +36,10 @@
 | Next.js 16 вместо 15 | create-next-app@latest устанавливает v16.1.6 как текущую стабильную | 2026-02-22 |
 | Cormorant Garamond как stand-in для Calmius | Визуально похожий тонкий serif с Cyrillic subset, вес 300 | 2026-02-22 |
 | SVG feTurbulence для текстуры бумаги | Inline SVG шум вместо внешнего PNG — ноль HTTP-запросов | 2026-02-22 |
+
+| Separate named exports в constants.ts | Tree-shaking, чистые импорты по секциям | 2026-02-22 |
+| CSS gradient для линий SectionHeading | Чище чем pseudo-elements, линии с утончением | 2026-02-22 |
+| AnimatedSection viewport.once: false | Анимации повторяются при каждом скролле по CONTEXT.md | 2026-02-22 |
 
 ## Блокеры
 
@@ -69,7 +73,8 @@
 | Фаза-План | Длительность | Задач | Файлов |
 |-----------|-------------|-------|--------|
 | 01-01 | 9 min | 2 | 12 |
+| 01-02 | 3 min | 2 | 9 |
 
 ---
-*Последнее обновление: 2026-02-22 после выполнения 01-01-PLAN.md*
-*Остановлено на: Completed 01-01-PLAN.md*
+*Последнее обновление: 2026-02-22 после выполнения 01-02-PLAN.md*
+*Остановлено на: Completed 01-02-PLAN.md*
