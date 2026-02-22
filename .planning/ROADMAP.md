@@ -32,7 +32,12 @@
 **Цель:** Инициализированный проект Next.js 15 с настроенными шрифтами, типами, константами и базовыми UI-компонентами
 **Зависит от:** Ничего (первая фаза)
 **Требования:** FOUND-01, FOUND-02, FOUND-03, FOUND-04, FOUND-05
-**Планы:** TBD
+**Планы:** 3 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Project scaffold, fonts, global styles, TypeScript types
+- [ ] 01-02-PLAN.md — Wedding data constants, base UI components
+- [ ] 01-03-PLAN.md — Page assembly, SectionDots navigation, visual verification
 
 **Критерии успеха (что должно быть ИСТИНОЙ):**
 1. `npm run dev` запускает проект без ошибок — главная страница рендерится в браузере
