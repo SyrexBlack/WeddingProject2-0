@@ -1,11 +1,12 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useCountdown } from '@/hooks/useCountdown';
 import { pluralize } from '@/lib/pluralize';
 import { countdownData } from '@/lib/constants';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Container } from '@/components/ui/Container';
+import { ParallaxSection } from '@/components/ui/ParallaxSection';
 
 /** Stagger container — дочерние элементы появляются по очереди */
 const containerVariants = {
@@ -34,8 +35,24 @@ interface TimeUnit {
 /**
  * Карточка обратного отсчёта — число + подпись.
  * Число анимируется через AnimatePresence при каждом изменении.
+ * When prefers-reduced-motion: renders static elements without animation.
  */
-function CountdownCard({ value, labels }: TimeUnit) {
+function CountdownCard({ value, labels, reducedMotion }: TimeUnit & { reducedMotion: boolean }) {
+  if (reducedMotion) {
+    return (
+      <div className="bg-white/80 rounded-card shadow-sm p-6 border border-alexandrite-light flex flex-col items-center justify-center min-w-0">
+        <div className="text-4xl sm:text-5xl font-calmius text-alexandrite font-semibold leading-none">
+          <span className="inline-block" suppressHydrationWarning>
+            {value}
+          </span>
+        </div>
+        <span className="text-sm text-chocolate/60 mt-1">
+          {pluralize(value, ...labels)}
+        </span>
+      </div>
+    );
+  }
+
   return (
     <motion.div
       variants={cardVariants}
@@ -69,7 +86,17 @@ function CountdownCard({ value, labels }: TimeUnit) {
 /**
  * Праздничное сообщение после наступления даты свадьбы.
  */
-function ExpiredMessage() {
+function ExpiredMessage({ reducedMotion }: { reducedMotion: boolean }) {
+  if (reducedMotion) {
+    return (
+      <div className="text-center py-8">
+        <p className="text-2xl sm:text-3xl font-calmius text-alexandrite">
+          {countdownData.expiredMessage}
+        </p>
+      </div>
+    );
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -88,15 +115,19 @@ function ExpiredMessage() {
  * Секция обратного отсчёта до свадьбы.
  *
  * 4 карточки (дни, часы, минуты, секунды) с:
+ * - Parallax depth effect on background (~50% speed)
  * - Stagger entrance animation (по очереди при скролле)
  * - AnimatePresence fade на смене цифр
  * - Русские подписи через pluralize
  * - Expired state с праздничным сообщением
  * - SSR-safe через isHydrated
+ * - Full reduced-motion support: all animations disabled
  */
 export function CountdownSection() {
   const { days, hours, minutes, seconds, isExpired, isHydrated } =
     useCountdown(countdownData.weddingDate);
+  const prefersReducedMotion = useReducedMotion();
+  const reducedMotion = !!prefersReducedMotion;
 
   const timeUnits: TimeUnit[] = [
     { value: days, labels: ['день', 'дня', 'дней'] },
@@ -106,14 +137,27 @@ export function CountdownSection() {
   ];
 
   return (
-    <section id="countdown" className="py-16">
+    <ParallaxSection id="countdown" className="py-16" speed={0.5}>
       <Container>
         <SectionHeading>До нашего дня</SectionHeading>
 
         <div className="mt-8">
           {isExpired ? (
-            <ExpiredMessage />
+            <ExpiredMessage reducedMotion={reducedMotion} />
+          ) : reducedMotion ? (
+            /* Reduced motion: plain div grid, no stagger, no animation */
+            <div className="grid grid-cols-2 gap-3 sm:flex sm:justify-center sm:gap-6">
+              {timeUnits.map((unit) => (
+                <CountdownCard
+                  key={unit.labels[0]}
+                  value={isHydrated ? unit.value : 0}
+                  labels={unit.labels}
+                  reducedMotion={reducedMotion}
+                />
+              ))}
+            </div>
           ) : (
+            /* Normal: animated stagger container */
             <motion.div
               variants={containerVariants}
               initial="hidden"
@@ -126,12 +170,13 @@ export function CountdownSection() {
                   key={unit.labels[0]}
                   value={isHydrated ? unit.value : 0}
                   labels={unit.labels}
+                  reducedMotion={reducedMotion}
                 />
               ))}
             </motion.div>
           )}
         </div>
       </Container>
-    </section>
+    </ParallaxSection>
   );
 }
