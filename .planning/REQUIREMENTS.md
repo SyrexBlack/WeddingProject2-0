@@ -9,10 +9,10 @@
 
 ### Фундамент (Foundation)
 
-- [ ] **FOUND-01**: Проект инициализирован на Next.js 15 (App Router) с TypeScript, Tailwind CSS 4, src-директорией
-- [ ] **FOUND-02**: Настроены шрифты через `next/font/google` без FOUT (заголовочный + текстовый шрифт)
+- [x] **FOUND-01**: Проект инициализирован на Next.js 15 (App Router) с TypeScript, Tailwind CSS 4, src-директорией
+- [x] **FOUND-02**: Настроены шрифты через `next/font/google` без FOUT (заголовочный + текстовый шрифт)
 - [ ] **FOUND-03**: Создан `lib/constants.ts` с типизированными данными свадьбы (имена, дата, место, программа, дресс-код)
-- [ ] **FOUND-04**: Создана система типов TypeScript для всех данных (WeddingData, TimelineEvent, RSVPFormData)
+- [x] **FOUND-04**: Создана система типов TypeScript для всех данных (WeddingData, TimelineEvent, RSVPFormData)
 - [ ] **FOUND-05**: Настроены базовые UI-компоненты (Container, Button, Card, AnimatedSection)
 
 ### Контент (Content Sections)

@@ -179,7 +179,7 @@ Phase 1 (Фундамент)
 
 | Фаза | Планы готовы | Статус | Завершено |
 |------|-------------|--------|-----------|
-| 1. Foundation | 0/? | Не начата | — |
+| 1. Foundation | 1/3 | In Progress | — |
 | 2. Static Sections | 0/? | Не начата | — |
 | 3. Dynamic Components | 0/? | Не начата | — |
 | 4. External Integrations | 0/? | Не начата | — |
