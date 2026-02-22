@@ -25,6 +25,7 @@ export function MapSection() {
             width="100%"
             frameBorder="0"
             allowFullScreen
+            loading="lazy"
             title="Карта места проведения"
             className="block w-full h-[200px] md:h-[350px]"
           />
