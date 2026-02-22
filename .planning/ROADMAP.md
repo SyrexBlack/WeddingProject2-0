@@ -9,7 +9,7 @@
 
 | # | Фаза | Цель | Требования | Планы | Статус |
 |---|------|------|-----------|-------|--------|
-| 1 | Foundation (Фундамент) | Инициализированный проект Next.js 15 с типами, константами и базовыми UI-компонентами | FOUND-01..05 | TBD | Pending |
+| 1 | Foundation (Фундамент) | Инициализированный проект Next.js 15 с типами, константами и базовыми UI-компонентами | FOUND-01..05 | 3/3 | Complete |
 | 2 | Static Sections (Статические секции) | Все информационные секции страницы отображают контент из constants.ts | CONT-01,03,04,05,07 | TBD | Pending |
 | 3 | Dynamic Components (Динамические компоненты) | Работающие клиентские компоненты — countdown, галерея, анимации при скролле | CONT-02,06, INTER-05 | TBD | Pending |
 | 4 | External Integrations (Внешние интеграции) | Работающая карта и RSVP-форма с отправкой данных | INTER-01..04 | TBD | Pending |
@@ -18,7 +18,7 @@
 
 ## Фазы
 
-- [ ] **Phase 1: Foundation (Фундамент)** — Инициализированный проект Next.js 15 с настроенными шрифтами, типами, константами и базовыми UI-компонентами
+- [x] **Phase 1: Foundation (Фундамент)** — Инициализированный проект Next.js 15 с настроенными шрифтами, типами, константами и базовыми UI-компонентами
 - [ ] **Phase 2: Static Sections (Статические секции)** — Все информационные секции страницы отображают контент из constants.ts
 - [ ] **Phase 3: Dynamic Components (Динамические компоненты)** — Работающие клиентские компоненты: countdown, галерея, анимации при скролле
 - [ ] **Phase 4: External Integrations (Внешние интеграции)** — Работающая карта Яндекс.Карт и RSVP-форма с отправкой данных
@@ -35,9 +35,9 @@
 **Планы:** 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Project scaffold, fonts, global styles, TypeScript types
-- [ ] 01-02-PLAN.md — Wedding data constants, base UI components
-- [ ] 01-03-PLAN.md — Page assembly, SectionDots navigation, visual verification
+- [x] 01-01-PLAN.md — Project scaffold, fonts, global styles, TypeScript types
+- [x] 01-02-PLAN.md — Wedding data constants, base UI components
+- [x] 01-03-PLAN.md — Page assembly, SectionDots navigation, visual verification
 
 **Критерии успеха (что должно быть ИСТИНОЙ):**
 1. `npm run dev` запускает проект без ошибок — главная страница рендерится в браузере
@@ -179,7 +179,7 @@ Phase 1 (Фундамент)
 
 | Фаза | Планы готовы | Статус | Завершено |
 |------|-------------|--------|-----------|
-| 1. Foundation | 1/3 | In Progress | — |
+| 1. Foundation | 3/3 | Complete | 2026-02-22 |
 | 2. Static Sections | 0/? | Не начата | — |
 | 3. Dynamic Components | 0/? | Не начата | — |
 | 4. External Integrations | 0/? | Не начата | — |

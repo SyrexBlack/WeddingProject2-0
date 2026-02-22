@@ -86,11 +86,11 @@
 
 | Требование | Фаза | Описание фазы | Статус |
 |------------|------|---------------|--------|
-| FOUND-01 | Phase 1 | Foundation (Фундамент) | Pending |
-| FOUND-02 | Phase 1 | Foundation (Фундамент) | Pending |
-| FOUND-03 | Phase 1 | Foundation (Фундамент) | Pending |
-| FOUND-04 | Phase 1 | Foundation (Фундамент) | Pending |
-| FOUND-05 | Phase 1 | Foundation (Фундамент) | Pending |
+| FOUND-01 | Phase 1 | Foundation (Фундамент) | Complete |
+| FOUND-02 | Phase 1 | Foundation (Фундамент) | Complete |
+| FOUND-03 | Phase 1 | Foundation (Фундамент) | Complete |
+| FOUND-04 | Phase 1 | Foundation (Фундамент) | Complete |
+| FOUND-05 | Phase 1 | Foundation (Фундамент) | Complete |
 | CONT-01 | Phase 2 | Static Sections (Статические секции) | Pending |
 | CONT-03 | Phase 2 | Static Sections (Статические секции) | Pending |
 | CONT-04 | Phase 2 | Static Sections (Статические секции) | Pending |

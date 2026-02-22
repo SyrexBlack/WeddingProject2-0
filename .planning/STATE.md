@@ -2,21 +2,21 @@
 
 **Проект:** Wedding Invitation (Свадебная визитка)
 **Текущая фаза:** 1 — Foundation (Фундамент)
-**Текущий план:** Plan 3 of 3 in Phase 1
-**Статус:** In Progress
+**Текущий план:** Phase 1 complete — ready for Phase 2
+**Статус:** Phase 1 Complete
 
 ## Ссылки на проект
 
 См.: .planning/PROJECT.md (обновлён 2026-02-22)
 
 **Основная ценность:** Гость открывает ссылку из мессенджера, видит красивое приглашение и подтверждает участие в один клик.
-**Текущий фокус:** Phase 1 — Foundation (Фундамент)
+**Текущий фокус:** Phase 1 — Foundation Complete, ready for Phase 2
 
 ## Прогресс по фазам
 
 | Фаза | Статус | Планы |
 |------|--------|-------|
-| 1. Foundation (Фундамент) | ◐ In Progress | 2/3 done |
+| 1. Foundation (Фундамент) | ● Complete | 3/3 done |
 | 2. Static Sections (Статические секции) | ○ Pending | — |
 | 3. Dynamic Components (Динамические компоненты) | ○ Pending | — |
 | 4. External Integrations (Внешние интеграции) | ○ Pending | — |
@@ -40,6 +40,9 @@
 | Separate named exports в constants.ts | Tree-shaking, чистые импорты по секциям | 2026-02-22 |
 | CSS gradient для линий SectionHeading | Чище чем pseudo-elements, линии с утончением | 2026-02-22 |
 | AnimatedSection viewport.once: false | Анимации повторяются при каждом скролле по CONTEXT.md | 2026-02-22 |
+| SectionDots без hero и footer | Точки навигации только для средних секций (countdown—map) | 2026-02-22 |
+| Custom rAF smooth scroll | requestAnimationFrame с easeInOutCubic для стабильных 1200ms | 2026-02-22 |
+| IntersectionObserver multi-threshold | Пороги [0.1, 0.3, 0.5] для точного определения активной секции | 2026-02-22 |
 
 ## Блокеры
 
@@ -74,7 +77,8 @@
 |-----------|-------------|-------|--------|
 | 01-01 | 9 min | 2 | 12 |
 | 01-02 | 3 min | 2 | 9 |
+| 01-03 | 2 min | 2 | 2 |
 
 ---
-*Последнее обновление: 2026-02-22 после выполнения 01-02-PLAN.md*
-*Остановлено на: Completed 01-02-PLAN.md*
+*Последнее обновление: 2026-02-22 после выполнения 01-03-PLAN.md*
+*Остановлено на: Completed 01-03-PLAN.md — Phase 1 Foundation complete*
