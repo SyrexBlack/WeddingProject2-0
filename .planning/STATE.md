@@ -2,15 +2,15 @@
 
 **Проект:** Wedding Invitation (Свадебная визитка)
 **Текущая фаза:** 3 — Dynamic Components (Динамические компоненты)
-**Текущий план:** Plan 1 of 2 complete
-**Статус:** In Progress
+**Текущий план:** Plan 2 of 2 complete
+**Статус:** Phase Complete
 
 ## Ссылки на проект
 
 См.: .planning/PROJECT.md (обновлён 2026-02-22)
 
 **Основная ценность:** Гость открывает ссылку из мессенджера, видит красивое приглашение и подтверждает участие в один клик.
-**Текущий фокус:** Phase 3 — Dynamic Components (countdown, галерея, анимации при скролле)
+**Текущий фокус:** Phase 4 — External Integrations (RSVP форма, карта, EmailJS)
 
 ## Прогресс по фазам
 
@@ -18,7 +18,7 @@
 |------|--------|-------|
 | 1. Foundation (Фундамент) | ● Complete | 3/3 done |
 | 2. Static Sections (Статические секции) | ● Complete | 2/2 done |
-| 3. Dynamic Components (Динамические компоненты) | ◐ In Progress | 1/2 done |
+| 3. Dynamic Components (Динамические компоненты) | ● Complete | 2/2 done |
 | 4. External Integrations (Внешние интеграции) | ○ Pending | — |
 | 5. Polish & Deploy (Полировка и деплой) | ○ Pending | — |
 | 6. Enhanced Features (Расширенные фичи) | ○ Pending | — |
@@ -50,6 +50,9 @@
 | Inline card styling для countdown | Александритная рамка, спецразмеры чисел — не подходит generic Card | 2026-02-22 |
 | isHydrated pattern для SSR-safe хуков | Статические значения до клиентского useEffect, без hydration mismatch | 2026-02-22 |
 | Stagger viewport once:true для countdown | Вход по очереди один раз, далее только digit AnimatePresence | 2026-02-22 |
+| ParallaxSection speed=0.5 — 30% y-range | Subtle depth без дискомфорта, useScroll/useTransform | 2026-02-22 |
+| Conditional render для reduced-motion | Plain div вместо motion.div — полное отключение анимаций | 2026-02-22 |
+| CSS reduced-motion media query как fallback | Ловит CSS-анимации вне Framer Motion контроля | 2026-02-22 |
 
 ## Блокеры
 
@@ -88,8 +91,9 @@
 | 02-01 | 4 min | 2 | 5 |
 | 02-02 | 6 min | 2 | 4 |
 | 03-01 | 3 min | 2 | 6 |
+| 03-02 | 2 min | 2 | 5 |
 
 ---
-*Последнее обновление: 2026-02-22 после 03-01 countdown timer*
-*Остановлено на: Completed 03-01-PLAN.md*
-*Файл для продолжения: .planning/phases/03-dynamic-components/03-02-PLAN.md*
+*Последнее обновление: 2026-02-22 после 03-02 parallax & reduced-motion*
+*Остановлено на: Completed 03-02-PLAN.md — Phase 3 complete*
+*Файл для продолжения: Phase 4 planning*

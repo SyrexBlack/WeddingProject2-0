@@ -11,7 +11,7 @@
 |---|------|------|-----------|-------|--------|
 | 1 | Foundation (Фундамент) | Инициализированный проект Next.js 15 с типами, константами и базовыми UI-компонентами | FOUND-01..05 | 3/3 | Complete |
 | 2 | Static Sections (Статические секции) | Все информационные секции страницы отображают контент из constants.ts | CONT-01,03,04,05,07 | 0/2 | Planned |
-| 3 | Dynamic Components (Динамические компоненты) | Countdown, parallax, prefers-reduced-motion | CONT-02, INTER-05 | 0/2 | Planned |
+| 3 | 2/2 | Complete   | 2026-02-22 | 0/2 | Planned |
 | 4 | External Integrations (Внешние интеграции) | Работающая карта и RSVP-форма с отправкой данных | INTER-01..04 | TBD | Pending |
 | 5 | Polish & Deploy (Полировка и деплой) | Оптимизированный, задеплоенный сайт с рабочими OG-тегами | DEPLOY-01..05 | TBD | Pending |
 | 6 | Enhanced Features (Расширенные фичи) | Дифференциаторы, делающие приглашение запоминающимся | ENHANCE-01..07 | TBD | Pending |
@@ -20,7 +20,7 @@
 
 - [x] **Phase 1: Foundation (Фундамент)** — Инициализированный проект Next.js 15 с настроенными шрифтами, типами, константами и базовыми UI-компонентами
 - [ ] **Phase 2: Static Sections (Статические секции)** — Все информационные секции страницы отображают контент из constants.ts
-- [ ] **Phase 3: Dynamic Components (Динамические компоненты)** — Countdown timer, parallax эффект, prefers-reduced-motion доступность
+- [x] **Phase 3: Dynamic Components (Динамические компоненты)** — Countdown timer, parallax эффект, prefers-reduced-motion доступность (completed 2026-02-22)
 - [ ] **Phase 4: External Integrations (Внешние интеграции)** — Работающая карта Яндекс.Карт и RSVP-форма с отправкой данных
 - [ ] **Phase 5: Polish & Deploy (Полировка и деплой)** — Оптимизированный, задеплоенный сайт с рабочими OG-тегами
 - [ ] **Phase 6: Enhanced Features (Расширенные фичи)** — Персонализация, конверт-анимация, музыка и другие дифференциаторы
