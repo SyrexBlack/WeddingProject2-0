@@ -8,6 +8,7 @@ import { InfoSection } from '@/components/sections/InfoSection';
 import { DresscodeSection } from '@/components/sections/DresscodeSection';
 import { FooterSection } from '@/components/sections/FooterSection';
 import { TimelineSection } from '@/components/sections/TimelineSection';
+import { CountdownSection } from '@/components/sections/CountdownSection';
 
 
 export default function Home() {
@@ -18,14 +19,8 @@ export default function Home() {
         {/* 1. Hero section */}
         <HeroSection />
 
-        {/* 2. Countdown — no heading per CONTEXT.md */}
-        <AnimatedSection id="countdown" className="py-16">
-          <Container>
-            <p className="text-center text-xl opacity-60">
-              Countdown будет реализован в Phase 3
-            </p>
-          </Container>
-        </AnimatedSection>
+        {/* 2. Countdown — live countdown to wedding date */}
+        <CountdownSection />
 
         {/* 3. Info — «О торжестве» */}
         <InfoSection />
