@@ -132,11 +132,11 @@ export function RSVPSection() {
   const isLoading = formStatus === 'loading';
 
   return (
-    <AnimatedSection id="rsvp" className="py-16">
+    <AnimatedSection id="rsvp" className="py-20 md:py-28">
       <Container>
-        <SectionHeading>Ждём вашего ответа</SectionHeading>
+        <SectionHeading subtitle="Пожалуйста, подтвердите ваше присутствие">Ждём вашего ответа</SectionHeading>
 
-        <Card className="mt-8 max-w-md mx-auto">
+        <Card className="mt-10 max-w-lg mx-auto">
           <AnimatePresence mode="wait">
             {formStatus === 'success' ? (
               /* ====== Success State ====== */
@@ -149,14 +149,14 @@ export function RSVPSection() {
                 className="py-8 text-center"
               >
                 <Check
-                  size={48}
-                  className="text-alexandrite mx-auto mb-4"
+                  size={56}
+                  className="text-alexandrite mx-auto mb-5 animate-pulse"
                   strokeWidth={1.5}
                 />
                 <p className="text-xl font-calmius text-chocolate">
                   Спасибо, {savedName || name}!
                 </p>
-                <p className="text-chocolate/70 mt-2">Ваш ответ принят</p>
+                <p className="text-chocolate/70 mt-3">Ваш ответ принят</p>
               </motion.div>
             ) : (
               /* ====== Form State ====== */
@@ -187,7 +187,7 @@ export function RSVPSection() {
                     }}
                     disabled={isLoading}
                     placeholder="Как к вам обращаться?"
-                    className="w-full px-4 py-3 rounded-card border border-alexandrite/30 bg-white/60 font-calmius text-chocolate focus:outline-none focus:ring-2 focus:ring-alexandrite/50 focus:border-alexandrite transition-colors disabled:opacity-50"
+                    className="w-full px-4 py-3 rounded-lg border border-chocolate/10 bg-white/60 font-calmius text-base text-chocolate focus:outline-none focus:ring-2 focus:ring-alexandrite/30 focus:border-alexandrite transition-colors disabled:opacity-50"
                   />
                   {nameError && (
                     <p className="text-error text-sm mt-1">{nameError}</p>
@@ -203,10 +203,10 @@ export function RSVPSection() {
                     {attendanceOptions.map((option) => (
                       <label
                         key={option.value}
-                        className={`flex items-center gap-3 px-4 py-3 rounded-card border cursor-pointer transition-all duration-200 ${
+                        className={`flex items-center gap-3 px-4 py-3 rounded-lg border cursor-pointer transition-all duration-200 ${
                           attendance === option.value
-                            ? 'border-alexandrite bg-alexandrite/10 text-chocolate'
-                            : 'border-alexandrite/20 bg-white/40 text-chocolate/70 hover:border-alexandrite/40'
+                            ? 'border-alexandrite bg-alexandrite/5 text-chocolate'
+                            : 'border-chocolate/10 bg-white/40 text-chocolate/70 hover:border-chocolate/20'
                         } ${isLoading ? 'opacity-50 pointer-events-none' : ''}`}
                       >
                         <input
@@ -222,14 +222,14 @@ export function RSVPSection() {
                           className={`w-4 h-4 rounded-full border-2 flex-shrink-0 flex items-center justify-center ${
                             attendance === option.value
                               ? 'border-alexandrite'
-                              : 'border-alexandrite/30'
+                              : 'border-chocolate/20'
                           }`}
                         >
                           {attendance === option.value && (
                             <span className="w-2 h-2 rounded-full bg-alexandrite" />
                           )}
                         </span>
-                        <span className="font-calmius text-sm">
+                        <span className="font-calmius text-sm tracking-wide">
                           {option.label}
                         </span>
                       </label>
@@ -253,7 +253,7 @@ export function RSVPSection() {
                     disabled={isLoading}
                     placeholder="Напишите пожелания паре..."
                     rows={3}
-                    className="w-full px-4 py-3 rounded-card border border-alexandrite/30 bg-white/60 font-calmius text-chocolate focus:outline-none focus:ring-2 focus:ring-alexandrite/50 focus:border-alexandrite transition-colors resize-none disabled:opacity-50"
+                    className="w-full px-4 py-3 rounded-lg border border-chocolate/10 bg-white/60 font-calmius text-base text-chocolate focus:outline-none focus:ring-2 focus:ring-alexandrite/30 focus:border-alexandrite transition-colors resize-none disabled:opacity-50"
                   />
                 </div>
 
@@ -286,7 +286,7 @@ export function RSVPSection() {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full mt-1 py-3 px-6 text-base md:text-lg inline-flex items-center justify-center rounded-card font-calmius transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-alexandrite/50 focus:ring-offset-2 bg-alexandrite text-white hover:bg-alexandrite/85 border border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full mt-1 py-3.5 px-8 text-base tracking-wide inline-flex items-center justify-center rounded-lg font-calmius transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-alexandrite/50 focus:ring-offset-2 bg-alexandrite text-white hover:bg-alexandrite/90 border border-transparent shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <>
@@ -338,7 +338,7 @@ export function RSVPSection() {
             transition={{ duration: 0.3 }}
             className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-sm w-[calc(100%-2rem)]"
           >
-            <div className="bg-error text-white px-5 py-3 rounded-card shadow-lg text-center font-calmius text-sm">
+             <div className="bg-error text-white px-5 py-3 rounded-lg shadow-xl text-center font-calmius text-sm">
               {errorMessage}
             </div>
           </motion.div>

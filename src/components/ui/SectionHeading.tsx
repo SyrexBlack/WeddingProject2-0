@@ -41,7 +41,7 @@ export function SectionHeading({ children, subtitle, className = '' }: SectionHe
 
       {/* Optional subtitle */}
       {subtitle && (
-        <p className="text-sm text-chocolate/50 italic mt-2 text-center">
+        <p className="text-sm text-chocolate/50 italic mt-2 text-center tracking-wide">
           {subtitle}
         </p>
       )}

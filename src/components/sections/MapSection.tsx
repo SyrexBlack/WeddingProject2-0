@@ -10,16 +10,16 @@ import { MapPin } from 'lucide-react';
  */
 export function MapSection() {
   return (
-    <AnimatedSection id="map" className="py-16">
+    <AnimatedSection id="map" className="py-20 md:py-28">
       <Container>
-        <SectionHeading>Место проведения</SectionHeading>
+        <SectionHeading subtitle="Как нас найти">Место проведения</SectionHeading>
 
-        <p className="text-center opacity-80 mt-2 mb-6">
+        <p className="text-center opacity-70 mt-4 mb-8 text-base md:text-lg">
           {mapData.address}
         </p>
 
-        {/* Yandex Maps iframe with rounded corners */}
-        <div className="overflow-hidden rounded-card">
+        {/* Yandex Maps iframe with card-like container */}
+        <div className="overflow-hidden rounded-2xl shadow-card border border-chocolate/5">
           <iframe
             src={mapData.iframeSrc}
             width="100%"
@@ -32,12 +32,12 @@ export function MapSection() {
         </div>
 
         {/* Route button — opens Yandex Maps navigation in new tab */}
-        <div className="mt-6 text-center">
+        <div className="mt-8 text-center">
           <a
             href={mapData.navigationUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center py-2 px-6 text-base rounded-card font-calmius border border-alexandrite text-alexandrite hover:bg-alexandrite hover:text-white transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-alexandrite/50 focus:ring-offset-2"
+            className="inline-flex items-center justify-center py-3 px-8 text-base rounded-lg font-calmius tracking-wide border border-alexandrite text-alexandrite hover:bg-alexandrite hover:text-white shadow-sm hover:shadow-md transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-alexandrite/50 focus:ring-offset-2"
           >
             <MapPin size={18} className="mr-2" strokeWidth={1.5} />
             Построить маршрут
