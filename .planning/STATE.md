@@ -2,8 +2,8 @@
 
 **Проект:** Wedding Invitation (Свадебная визитка)
 **Текущая фаза:** 3 — Dynamic Components (Динамические компоненты)
-**Текущий план:** Not started
-**Статус:** Ready to plan
+**Текущий план:** Plan 1 of 2 complete
+**Статус:** In Progress
 
 ## Ссылки на проект
 
@@ -18,7 +18,7 @@
 |------|--------|-------|
 | 1. Foundation (Фундамент) | ● Complete | 3/3 done |
 | 2. Static Sections (Статические секции) | ● Complete | 2/2 done |
-| 3. Dynamic Components (Динамические компоненты) | ○ Pending | — |
+| 3. Dynamic Components (Динамические компоненты) | ◐ In Progress | 1/2 done |
 | 4. External Integrations (Внешние интеграции) | ○ Pending | — |
 | 5. Polish & Deploy (Полировка и деплой) | ○ Pending | — |
 | 6. Enhanced Features (Расширенные фичи) | ○ Pending | — |
@@ -47,6 +47,9 @@
 | IntersectionObserver multi-threshold | Пороги [0.1, 0.3, 0.5] для точного определения активной секции | 2026-02-22 |
 | Dual render для zigzag timeline | Отдельные mobile/desktop DOM блоки (md:hidden / hidden md:flex) | 2026-02-22 |
 | Wine/Heart/UtensilsCrossed/Cake/Sparkles иконки | Уникальная Lucide-иконка на каждый этап таймлайна | 2026-02-22 |
+| Inline card styling для countdown | Александритная рамка, спецразмеры чисел — не подходит generic Card | 2026-02-22 |
+| isHydrated pattern для SSR-safe хуков | Статические значения до клиентского useEffect, без hydration mismatch | 2026-02-22 |
+| Stagger viewport once:true для countdown | Вход по очереди один раз, далее только digit AnimatePresence | 2026-02-22 |
 
 ## Блокеры
 
@@ -84,8 +87,9 @@
 | 01-03 | 2 min | 2 | 2 |
 | 02-01 | 4 min | 2 | 5 |
 | 02-02 | 6 min | 2 | 4 |
+| 03-01 | 3 min | 2 | 6 |
 
 ---
-*Последнее обновление: 2026-02-22 после Phase 3 context gathered*
-*Остановлено на: Phase 3 context gathered, ready to plan Phase 3*
-*Файл для продолжения: .planning/phases/03-dynamic-components/03-CONTEXT.md*
+*Последнее обновление: 2026-02-22 после 03-01 countdown timer*
+*Остановлено на: Completed 03-01-PLAN.md*
+*Файл для продолжения: .planning/phases/03-dynamic-components/03-02-PLAN.md*
