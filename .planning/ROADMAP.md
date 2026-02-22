@@ -13,7 +13,7 @@
 | 2 | Static Sections (Статические секции) | Все информационные секции страницы отображают контент из constants.ts | CONT-01,03,04,05,07 | 0/2 | Planned |
 | 3 | 2/2 | Complete   | 2026-02-22 | 0/2 | Planned |
 | 4 | External Integrations (Внешние интеграции) | Работающая карта и RSVP-форма с отправкой данных | INTER-01..04 | 2/2 | Planned |
-| 5 | Polish & Deploy (Полировка и деплой) | Оптимизированный, задеплоенный сайт с рабочими OG-тегами | DEPLOY-01..05 | TBD | Pending |
+| 5 | Polish & Deploy (Полировка и деплой) | Оптимизированный, задеплоенный сайт с рабочими OG-тегами | DEPLOY-01..05 | 0/3 | Planned |
 | 6 | Enhanced Features (Расширенные фичи) | Дифференциаторы, делающие приглашение запоминающимся | ENHANCE-01..07 | TBD | Pending |
 
 ## Фазы
@@ -22,7 +22,7 @@
 - [ ] **Phase 2: Static Sections (Статические секции)** — Все информационные секции страницы отображают контент из constants.ts
 - [x] **Phase 3: Dynamic Components (Динамические компоненты)** — Countdown timer, parallax эффект, prefers-reduced-motion доступность (completed 2026-02-22)
 - [ ] **Phase 4: External Integrations (Внешние интеграции)** — Работающая карта Яндекс.Карт и RSVP-форма с отправкой данных
-- [ ] **Phase 5: Polish & Deploy (Полировка и деплой)** — Оптимизированный, задеплоенный сайт с рабочими OG-тегами
+- [ ] **Phase 5: Polish & Deploy (Полировка и деплой)** — Оптимизированный, задеплоенный сайт с рабочими OG-тегами (3 plans)
 - [ ] **Phase 6: Enhanced Features (Расширенные фичи)** — Персонализация, конверт-анимация, музыка и другие дифференциаторы
 
 ## Детали фаз
@@ -112,7 +112,12 @@ Plans:
 **Цель:** Оптимизированный, задеплоенный сайт с рабочими OG-тегами в мессенджерах
 **Зависит от:** Phase 2, Phase 3, Phase 4 (весь функционал должен быть готов)
 **Требования:** DEPLOY-01, DEPLOY-02, DEPLOY-03, DEPLOY-04, DEPLOY-05
-**Планы:** TBD
+**Планы:** 3 plans
+
+Plans:
+- [ ] 05-01-PLAN.md — OG image generation (next/og) + Hero image optimization (next/image)
+- [ ] 05-02-PLAN.md — Mobile responsiveness audit and fixes for 320px minimum
+- [ ] 05-03-PLAN.md — Production build verification, Lighthouse optimization, Vercel deploy
 
 **Критерии успеха (что должно быть ИСТИНОЙ):**
 1. При отправке ссылки в Telegram и WhatsApp отображается карточка с фото и заголовком (OG-теги)
@@ -196,7 +201,7 @@ Phase 1 (Фундамент)
 | 2. Static Sections | 2/2 | Planned | — |
 | 3. Dynamic Components | 0/2 | Planned | — |
 | 4. External Integrations | 2/2 | Planned | — |
-| 5. Polish & Deploy | 0/? | Не начата | — |
+| 5. Polish & Deploy | 3/3 | Planned | — |
 | 6. Enhanced Features | 0/? | Не начата | — |
 
 ---
