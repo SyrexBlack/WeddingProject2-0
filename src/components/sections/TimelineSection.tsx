@@ -58,12 +58,12 @@ export function TimelineSection() {
 
                   {/* Event content — mobile: always right of line; desktop: alternating */}
                   {/* Mobile layout */}
-                  <div className="md:hidden ml-12">
+                  <div className="md:hidden ml-10">
                     <Card>
                       <span className="text-alexandrite font-medium text-sm">
                         {event.time}
                       </span>
-                      <h3 className="text-lg font-medium mt-1">{event.title}</h3>
+                      <h3 className="text-base md:text-lg font-medium mt-1">{event.title}</h3>
                       {event.description && (
                         <p className="text-sm opacity-70 mt-1">{event.description}</p>
                       )}

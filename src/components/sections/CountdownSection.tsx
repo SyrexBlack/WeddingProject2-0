@@ -40,8 +40,8 @@ interface TimeUnit {
 function CountdownCard({ value, labels, reducedMotion }: TimeUnit & { reducedMotion: boolean }) {
   if (reducedMotion) {
     return (
-      <div className="bg-white/80 rounded-card shadow-sm p-6 border border-alexandrite-light flex flex-col items-center justify-center min-w-0">
-        <div className="text-4xl sm:text-5xl font-calmius text-alexandrite font-semibold leading-none">
+      <div className="bg-white/80 rounded-card shadow-sm p-4 md:p-6 border border-alexandrite-light flex flex-col items-center justify-center min-w-0">
+        <div className="text-3xl md:text-5xl font-calmius text-alexandrite font-semibold leading-none">
           <span className="inline-block" suppressHydrationWarning>
             {value}
           </span>
@@ -56,10 +56,10 @@ function CountdownCard({ value, labels, reducedMotion }: TimeUnit & { reducedMot
   return (
     <motion.div
       variants={cardVariants}
-      className="bg-white/80 rounded-card shadow-sm p-6 border border-alexandrite-light flex flex-col items-center justify-center min-w-0"
+      className="bg-white/80 rounded-card shadow-sm p-4 md:p-6 border border-alexandrite-light flex flex-col items-center justify-center min-w-0"
     >
       {/* Число с fade-анимацией при смене */}
-      <div className="text-4xl sm:text-5xl font-calmius text-alexandrite font-semibold leading-none">
+      <div className="text-3xl md:text-5xl font-calmius text-alexandrite font-semibold leading-none">
         <AnimatePresence mode="wait">
           <motion.span
             key={value}
