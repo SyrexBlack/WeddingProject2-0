@@ -1,9 +1,9 @@
 # Project State
 
 **Проект:** Wedding Invitation (Свадебная визитка)
-**Текущая фаза:** 3 — Dynamic Components (Динамические компоненты)
-**Текущий план:** Plan 2 of 2 complete
-**Статус:** Phase Complete
+**Текущая фаза:** 4 — External Integrations (Внешние интеграции)
+**Текущий план:** Plan 1 of 2 complete
+**Статус:** In Progress
 
 ## Ссылки на проект
 
@@ -19,7 +19,7 @@
 | 1. Foundation (Фундамент) | ● Complete | 3/3 done |
 | 2. Static Sections (Статические секции) | ● Complete | 2/2 done |
 | 3. Dynamic Components (Динамические компоненты) | ● Complete | 2/2 done |
-| 4. External Integrations (Внешние интеграции) | ○ Pending | — |
+| 4. External Integrations (Внешние интеграции) | ◐ In Progress | 1/2 done |
 | 5. Polish & Deploy (Полировка и деплой) | ○ Pending | — |
 | 6. Enhanced Features (Расширенные фичи) | ○ Pending | — |
 
@@ -53,6 +53,7 @@
 | ParallaxSection speed=0.5 — 30% y-range | Subtle depth без дискомфорта, useScroll/useTransform | 2026-02-22 |
 | Conditional render для reduced-motion | Plain div вместо motion.div — полное отключение анимаций | 2026-02-22 |
 | CSS reduced-motion media query как fallback | Ловит CSS-анимации вне Framer Motion контроля | 2026-02-22 |
+| Direct &lt;a&gt; вместо Button для внешних ссылок | Button не пробрасывает target/rel, а route нужен target=_blank | 2026-02-22 |
 
 ## Блокеры
 
@@ -92,8 +93,9 @@
 | 02-02 | 6 min | 2 | 4 |
 | 03-01 | 3 min | 2 | 6 |
 | 03-02 | 2 min | 2 | 5 |
+| 04-01 | 2 min | 2 | 4 |
 
 ---
-*Последнее обновление: 2026-02-22 после Phase 4 context gathered*
-*Остановлено на: Phase 4 context gathered*
-*Файл для продолжения: .planning/phases/04-external-integrations/04-CONTEXT.md*
+*Последнее обновление: 2026-02-22 после 04-01-PLAN.md*
+*Остановлено на: Completed 04-01-PLAN.md*
+*Файл для продолжения: .planning/phases/04-external-integrations/04-02-PLAN.md*
