@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+/* ===========================
+   CSS Custom Properties
+   Wedding Color Palette
+   =========================== */
+:root {
+  --color-alexandrite: #598c74;
+  --color-alexandrite-light: rgba(89, 140, 116, 0.15);
+  --color-alexandrite-medium: rgba(89, 140, 116, 0.3);
+  --color-chocolate: #3C1518;
+  --color-chocolate-light: rgba(60, 21, 24, 0.6);
+  --color-cream: #FFF8F0;
+  --color-cream-dark: #FFF5E9;
+  --color-sand: #F5E6D3;
+  --color-error: #C4463A;
+}
+
+/* ===========================
+   Base Styles
+   =========================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-chocolate);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Paper / linen texture overlay — subtle noise effect */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Ensure main content sits above the texture */
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===========================
+   Selection Colors
+   =========================== */
+::selection {
+  background-color: rgba(89, 140, 116, 0.2);
+  color: var(--color-chocolate);
+}
+
+::-moz-selection {
+  background-color: rgba(89, 140, 116, 0.2);
+  color: var(--color-chocolate);
+}
+
+/* ===========================
+   Scrollbar Styling (subtle)
+   =========================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-alexandrite-medium);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-alexandrite);
+}
