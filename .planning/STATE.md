@@ -2,22 +2,22 @@
 
 **Проект:** Wedding Invitation (Свадебная визитка)
 **Текущая фаза:** 2 — Static Sections (Статические секции)
-**Текущий план:** Phase 2 context gathered — ready for planning
-**Статус:** Phase 2 Context Captured
+**Текущий план:** Plan 2 of Phase 2 (02-01 complete)
+**Статус:** Executing Phase 2
 
 ## Ссылки на проект
 
 См.: .planning/PROJECT.md (обновлён 2026-02-22)
 
 **Основная ценность:** Гость открывает ссылку из мессенджера, видит красивое приглашение и подтверждает участие в один клик.
-**Текущий фокус:** Phase 2 — Static Sections, context gathered, ready for planning
+**Текущий фокус:** Phase 2 — Static Sections, Plan 01 complete, ready for Plan 02
 
 ## Прогресс по фазам
 
 | Фаза | Статус | Планы |
 |------|--------|-------|
 | 1. Foundation (Фундамент) | ● Complete | 3/3 done |
-| 2. Static Sections (Статические секции) | ◐ Context captured | — |
+| 2. Static Sections (Статические секции) | ◐ In Progress | 1/? done |
 | 3. Dynamic Components (Динамические компоненты) | ○ Pending | — |
 | 4. External Integrations (Внешние интеграции) | ○ Pending | — |
 | 5. Polish & Deploy (Полировка и деплой) | ○ Pending | — |
@@ -42,6 +42,8 @@
 | AnimatedSection viewport.once: false | Анимации повторяются при каждом скролле по CONTEXT.md | 2026-02-22 |
 | SectionDots без hero и footer | Точки навигации только для средних секций (countdown—map) | 2026-02-22 |
 | Custom rAF smooth scroll | requestAnimationFrame с easeInOutCubic для стабильных 1200ms | 2026-02-22 |
+| Server components для секций без интерактивности | Hero, Info, Dresscode, Footer — чистый рендеринг данных из constants | 2026-02-22 |
+| Glassmorphism backdrop-blur-md bg-white/30 для Hero | Читаемость текста поверх SVG текстуры | 2026-02-22 |
 | IntersectionObserver multi-threshold | Пороги [0.1, 0.3, 0.5] для точного определения активной секции | 2026-02-22 |
 
 ## Блокеры
@@ -78,7 +80,8 @@
 | 01-01 | 9 min | 2 | 12 |
 | 01-02 | 3 min | 2 | 9 |
 | 01-03 | 2 min | 2 | 2 |
+| 02-01 | 4 min | 2 | 5 |
 
 ---
-*Последнее обновление: 2026-02-22 после discuss-phase 02*
-*Остановлено на: Phase 2 context gathered — ready for /gsd-plan-phase 2*
+*Последнее обновление: 2026-02-22 после execute 02-01*
+*Остановлено на: Completed 02-01-PLAN.md — ready for 02-02*
