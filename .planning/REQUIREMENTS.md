@@ -80,38 +80,54 @@
 
 ## Traceability
 
-Какие фазы покрывают какие требования. Обновляется при создании роадмапа.
+Какие фазы покрывают какие требования. Обновлено при создании роадмапа.
 
-| Requirement | Phase | Status |
-|-------------|-------|--------|
-| FOUND-01 | Phase 1 | Pending |
-| FOUND-02 | Phase 1 | Pending |
-| FOUND-03 | Phase 1 | Pending |
-| FOUND-04 | Phase 1 | Pending |
-| FOUND-05 | Phase 1 | Pending |
-| CONT-01 | Phase 2 | Pending |
-| CONT-02 | Phase 3 | Pending |
-| CONT-03 | Phase 2 | Pending |
-| CONT-04 | Phase 2 | Pending |
-| CONT-05 | Phase 2 | Pending |
-| CONT-06 | Phase 3 | Pending |
-| CONT-07 | Phase 2 | Pending |
-| INTER-01 | Phase 4 | Pending |
-| INTER-02 | Phase 4 | Pending |
-| INTER-03 | Phase 4 | Pending |
-| INTER-04 | Phase 4 | Pending |
-| INTER-05 | Phase 3 | Pending |
-| DEPLOY-01 | Phase 5 | Pending |
-| DEPLOY-02 | Phase 5 | Pending |
-| DEPLOY-03 | Phase 5 | Pending |
-| DEPLOY-04 | Phase 5 | Pending |
-| DEPLOY-05 | Phase 5 | Pending |
+### v1 Requirements → Phases
 
-**Coverage:**
-- v1 requirements: 22 total
-- Mapped to phases: 22
-- Unmapped: 0 ✓
+| Требование | Фаза | Описание фазы | Статус |
+|------------|------|---------------|--------|
+| FOUND-01 | Phase 1 | Foundation (Фундамент) | Pending |
+| FOUND-02 | Phase 1 | Foundation (Фундамент) | Pending |
+| FOUND-03 | Phase 1 | Foundation (Фундамент) | Pending |
+| FOUND-04 | Phase 1 | Foundation (Фундамент) | Pending |
+| FOUND-05 | Phase 1 | Foundation (Фундамент) | Pending |
+| CONT-01 | Phase 2 | Static Sections (Статические секции) | Pending |
+| CONT-03 | Phase 2 | Static Sections (Статические секции) | Pending |
+| CONT-04 | Phase 2 | Static Sections (Статические секции) | Pending |
+| CONT-05 | Phase 2 | Static Sections (Статические секции) | Pending |
+| CONT-07 | Phase 2 | Static Sections (Статические секции) | Pending |
+| CONT-02 | Phase 3 | Dynamic Components (Динамические компоненты) | Pending |
+| CONT-06 | Phase 3 | Dynamic Components (Динамические компоненты) | Pending |
+| INTER-05 | Phase 3 | Dynamic Components (Динамические компоненты) | Pending |
+| INTER-01 | Phase 4 | External Integrations (Внешние интеграции) | Pending |
+| INTER-02 | Phase 4 | External Integrations (Внешние интеграции) | Pending |
+| INTER-03 | Phase 4 | External Integrations (Внешние интеграции) | Pending |
+| INTER-04 | Phase 4 | External Integrations (Внешние интеграции) | Pending |
+| DEPLOY-01 | Phase 5 | Polish & Deploy (Полировка и деплой) | Pending |
+| DEPLOY-02 | Phase 5 | Polish & Deploy (Полировка и деплой) | Pending |
+| DEPLOY-03 | Phase 5 | Polish & Deploy (Полировка и деплой) | Pending |
+| DEPLOY-04 | Phase 5 | Polish & Deploy (Полировка и деплой) | Pending |
+| DEPLOY-05 | Phase 5 | Polish & Deploy (Полировка и деплой) | Pending |
+
+### v2 Requirements → Phases
+
+| Требование | Фаза | Описание фазы | Статус |
+|------------|------|---------------|--------|
+| ENHANCE-01 | Phase 6 | Enhanced Features (Расширенные фичи) | Pending |
+| ENHANCE-02 | Phase 6 | Enhanced Features (Расширенные фичи) | Pending |
+| ENHANCE-03 | Phase 6 | Enhanced Features (Расширенные фичи) | Pending |
+| ENHANCE-04 | Phase 6 | Enhanced Features (Расширенные фичи) | Pending |
+| ENHANCE-05 | Phase 6 | Enhanced Features (Расширенные фичи) | Pending |
+| ENHANCE-06 | Phase 6 | Enhanced Features (Расширенные фичи) | Pending |
+| ENHANCE-07 | Phase 6 | Enhanced Features (Расширенные фичи) | Pending |
+
+### Покрытие
+
+- **v1 требований:** 22 всего
+- **Привязано к фазам:** 22
+- **Непокрыто:** 0 ✓
+- **v2 требований (Phase 6):** 7 (опциональная фаза)
 
 ---
-*Requirements defined: 2026-02-22*
-*Last updated: 2026-02-22 after initial definition*
+*Требования определены: 2026-02-22*
+*Последнее обновление: 2026-02-22 после создания роадмапа*
