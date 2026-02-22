@@ -108,6 +108,6 @@
 | 05-01 | 4 min | 2 | 5 |
 
 ---
-*Последнее обновление: 2026-02-22 после 05-01-PLAN.md*
-*Остановлено на: Completed 05-01-PLAN.md*
-*Файл для продолжения: 05-03-PLAN.md*
+*Последнее обновление: 2026-02-22 после 05-03 Task 1*
+*Остановлено на: 05-03 Task 2 checkpoint — Vercel deploy requires auth + human verification*
+*Файл для продолжения: 05-03-PLAN.md (resume at Task 2)*
