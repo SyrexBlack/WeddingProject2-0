@@ -2,15 +2,15 @@
 
 **Проект:** Wedding Invitation (Свадебная визитка)
 **Текущая фаза:** 4 — External Integrations (Внешние интеграции)
-**Текущий план:** Plan 1 of 2 complete
-**Статус:** In Progress
+**Текущий план:** Plan 2 of 2 complete
+**Статус:** Phase Complete
 
 ## Ссылки на проект
 
 См.: .planning/PROJECT.md (обновлён 2026-02-22)
 
 **Основная ценность:** Гость открывает ссылку из мессенджера, видит красивое приглашение и подтверждает участие в один клик.
-**Текущий фокус:** Phase 4 — External Integrations (RSVP форма, карта, EmailJS)
+**Текущий фокус:** Phase 4 complete — ready for Phase 5 (Polish & Deploy)
 
 ## Прогресс по фазам
 
@@ -19,7 +19,7 @@
 | 1. Foundation (Фундамент) | ● Complete | 3/3 done |
 | 2. Static Sections (Статические секции) | ● Complete | 2/2 done |
 | 3. Dynamic Components (Динамические компоненты) | ● Complete | 2/2 done |
-| 4. External Integrations (Внешние интеграции) | ◐ In Progress | 1/2 done |
+| 4. External Integrations (Внешние интеграции) | ● Complete | 2/2 done |
 | 5. Polish & Deploy (Полировка и деплой) | ○ Pending | — |
 | 6. Enhanced Features (Расширенные фичи) | ○ Pending | — |
 
@@ -54,6 +54,9 @@
 | Conditional render для reduced-motion | Plain div вместо motion.div — полное отключение анимаций | 2026-02-22 |
 | CSS reduced-motion media query как fallback | Ловит CSS-анимации вне Framer Motion контроля | 2026-02-22 |
 | Direct &lt;a&gt; вместо Button для внешних ссылок | Button не пробрасывает target/rel, а route нужен target=_blank | 2026-02-22 |
+| Custom radio buttons для RSVP attendance | Styled labels с alexandrite card pattern вместо нативных radio | 2026-02-22 |
+| Error toast с auto-dismiss 5сек | Фиксированный overlay, не блокирует форму для повторной попытки | 2026-02-22 |
+| Single name field вместо firstName/lastName | Проще для неформального свадебного контекста | 2026-02-22 |
 
 ## Блокеры
 
@@ -94,8 +97,9 @@
 | 03-01 | 3 min | 2 | 6 |
 | 03-02 | 2 min | 2 | 5 |
 | 04-01 | 2 min | 2 | 4 |
+| 04-02 | 3 min | 2 | 2 |
 
 ---
-*Последнее обновление: 2026-02-22 после 04-01-PLAN.md*
-*Остановлено на: Completed 04-01-PLAN.md*
-*Файл для продолжения: .planning/phases/04-external-integrations/04-02-PLAN.md*
+*Последнее обновление: 2026-02-22 после 04-02-PLAN.md*
+*Остановлено на: Completed 04-02-PLAN.md*
+*Файл для продолжения: Phase 5 planning*
