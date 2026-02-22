@@ -1,16 +1,16 @@
 # Project State
 
 **Проект:** Wedding Invitation (Свадебная визитка)
-**Текущая фаза:** 2 — Static Sections (Статические секции)
-**Текущий план:** Phase 2 complete (02-01, 02-02 done)
-**Статус:** Phase 2 Complete
+**Текущая фаза:** 3 — Dynamic Components (Динамические компоненты)
+**Текущий план:** Not started
+**Статус:** Ready to plan
 
 ## Ссылки на проект
 
 См.: .planning/PROJECT.md (обновлён 2026-02-22)
 
 **Основная ценность:** Гость открывает ссылку из мессенджера, видит красивое приглашение и подтверждает участие в один клик.
-**Текущий фокус:** Phase 2 — Static Sections complete, ready for Phase 3
+**Текущий фокус:** Phase 3 — Dynamic Components (countdown, галерея, анимации при скролле)
 
 ## Прогресс по фазам
 
@@ -86,5 +86,5 @@
 | 02-02 | 6 min | 2 | 4 |
 
 ---
-*Последнее обновление: 2026-02-22 после execute 02-02*
-*Остановлено на: Completed 02-02-PLAN.md — Phase 2 complete, ready for Phase 3*
+*Последнее обновление: 2026-02-22 после Phase 2 complete, transition to Phase 3*
+*Остановлено на: Phase 2 complete, ready to discuss/plan Phase 3*

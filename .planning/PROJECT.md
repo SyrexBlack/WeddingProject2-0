@@ -12,13 +12,12 @@
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ Hero-секция с именами пары, датой и фоновым фото — Phase 2
+- ✓ Информационные блоки: «Где», «Когда», «Дресс-код», «Программа дня» — Phase 2
 
 ### Active
 
-- [ ] Hero-секция с именами пары, датой и фоновым фото
 - [ ] Обратный отсчёт (таймер) до начала торжества
-- [ ] Информационные блоки: «Где», «Когда», «Дресс-код», «Программа дня»
 - [ ] Интерактивная карта (Yandex Maps или Google Maps) с меткой места проведения
 - [ ] Галерея фотографий пары
 - [ ] Форма RSVP: имя, подтверждение участия, выбор блюд (опционально)
@@ -65,11 +64,14 @@
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Next.js как основа | SSG для скорости, экосистема React, деплой на Vercel | — Pending |
-| Tailwind CSS для стилизации | Быстрая разработка, mobile-first утилиты | — Pending |
-| Framer Motion для анимаций | Декларативный API, хорошая интеграция с React | — Pending |
+| Next.js как основа | SSG для скорости, экосистема React, деплой на Vercel | ✓ Working (Next.js 16) |
+| Tailwind CSS для стилизации | Быстрая разработка, mobile-first утилиты | ✓ Working (Tailwind 4) |
+| Framer Motion для анимаций | Декларативный API, хорошая интеграция с React | ✓ Working (AnimatedSection) |
 | Без бэкенда (serverless формы) | Нулевой бюджет, простота поддержки | — Pending |
-| Референс-шаблоны для вдохновения | Изучить лучшие практики из 4 шаблонов, не копировать | — Pending |
+| Референс-шаблоны для вдохновения | Изучить лучшие практики из 4 шаблонов, не копировать | ✓ Applied |
+| Glassmorphism для Hero overlay | backdrop-blur-md + bg-white/30, элегантный стиль поверх текстуры | ✓ Shipped Phase 2 |
+| SVG feTurbulence для текстуры фона | Inline SVG шум вместо PNG — ноль HTTP-запросов | ✓ Shipped Phase 1 |
+| Zigzag timeline layout | Чередование лево-право на десктопе, линейный на мобильном | ✓ Shipped Phase 2 |
 
 ---
-*Last updated: 2026-02-22 after initialization*
+*Last updated: 2026-02-22 after Phase 2*
