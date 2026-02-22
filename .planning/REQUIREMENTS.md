@@ -37,7 +37,7 @@
 
 - [ ] **DEPLOY-01**: Open Graph теги настроены — при отправке ссылки в Telegram/WhatsApp отображается карточка с фото и заголовком
 - [ ] **DEPLOY-02**: Все изображения оптимизированы через `next/image` (WebP, lazy loading, blur placeholder)
-- [ ] **DEPLOY-03**: Сайт корректно отображается на мобильных устройствах (от 320px) — mobile-first
+- [x] **DEPLOY-03**: Сайт корректно отображается на мобильных устройствах (от 320px) — mobile-first
 - [ ] **DEPLOY-04**: Сайт задеплоен на Vercel с HTTPS и доступен по публичному URL
 - [ ] **DEPLOY-05**: Lighthouse Performance score > 90 на мобильном
 

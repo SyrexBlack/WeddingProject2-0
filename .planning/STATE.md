@@ -1,16 +1,16 @@
 # Project State
 
 **Проект:** Wedding Invitation (Свадебная визитка)
-**Текущая фаза:** 4 — External Integrations (Внешние интеграции)
-**Текущий план:** Plan 2 of 2 complete
-**Статус:** Phase Complete
+**Текущая фаза:** 5 — Polish & Deploy (Полировка и деплой)
+**Текущий план:** Plan 2 of 3 complete
+**Статус:** In Progress
 
 ## Ссылки на проект
 
 См.: .planning/PROJECT.md (обновлён 2026-02-22)
 
 **Основная ценность:** Гость открывает ссылку из мессенджера, видит красивое приглашение и подтверждает участие в один клик.
-**Текущий фокус:** Phase 4 complete — ready for Phase 5 (Polish & Deploy)
+**Текущий фокус:** Phase 5 in progress — 320px mobile viewport fixes complete (Plan 02)
 
 ## Прогресс по фазам
 
@@ -20,7 +20,7 @@
 | 2. Static Sections (Статические секции) | ● Complete | 2/2 done |
 | 3. Dynamic Components (Динамические компоненты) | ● Complete | 2/2 done |
 | 4. External Integrations (Внешние интеграции) | ● Complete | 2/2 done |
-| 5. Polish & Deploy (Полировка и деплой) | ○ Pending | — |
+| 5. Polish & Deploy (Полировка и деплой) | ◐ In Progress | 1/3 done |
 | 6. Enhanced Features (Расширенные фичи) | ○ Pending | — |
 
 ## Решения
@@ -57,6 +57,9 @@
 | Custom radio buttons для RSVP attendance | Styled labels с alexandrite card pattern вместо нативных radio | 2026-02-22 |
 | Error toast с auto-dismiss 5сек | Фиксированный overlay, не блокирует форму для повторной попытки | 2026-02-22 |
 | Single name field вместо firstName/lastName | Проще для неформального свадебного контекста | 2026-02-22 |
+| Фиксированные размеры шрифтов через breakpoints | text-2xl md:text-5xl вместо fluid typography | 2026-02-22 |
+| Карта 200px mobile / 350px desktop | Tailwind h-[200px] md:h-[350px] вместо HTML height | 2026-02-22 |
+| overflow-x hidden на body | Safety net от случайного горизонтального скролла | 2026-02-22 |
 
 ## Блокеры
 
@@ -98,8 +101,9 @@
 | 03-02 | 2 min | 2 | 5 |
 | 04-01 | 2 min | 2 | 4 |
 | 04-02 | 3 min | 2 | 2 |
+| 05-02 | 3 min | 2 | 7 |
 
 ---
-*Последнее обновление: 2026-02-22 после 04-02-PLAN.md*
-*Остановлено на: Completed 04-02-PLAN.md*
-*Файл для продолжения: Phase 5 planning*
+*Последнее обновление: 2026-02-22 после 05-02-PLAN.md*
+*Остановлено на: Completed 05-02-PLAN.md*
+*Файл для продолжения: 05-03-PLAN.md*
