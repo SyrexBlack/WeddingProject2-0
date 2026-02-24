@@ -1,18 +1,21 @@
 # Project State
 
 **Проект:** Wedding Invitation (Свадебная визитка)
-**Текущая фаза:** 5 — Polish & Deploy (Полировка и деплой)
-**Текущий план:** Plan 2 of 3 complete
-**Статус:** In Progress (Plan 01 + 02 done)
+**Текущий milestone:** v2.0 — Firebase + Telegram Bot
+**Текущая фаза:** Not started (defining requirements)
+**Текущий план:** —
+**Статус:** Defining requirements
 
 ## Ссылки на проект
 
-См.: .planning/PROJECT.md (обновлён 2026-02-22)
+См.: .planning/PROJECT.md (обновлён 2026-02-24)
 
 **Основная ценность:** Гость открывает ссылку из мессенджера, видит красивое приглашение и подтверждает участие в один клик.
-**Текущий фокус:** Phase 5 in progress — OG image + Hero optimization (Plan 01) and 320px fixes (Plan 02) complete, Plan 03 remaining
+**Текущий фокус:** Milestone v2.0 — Firebase Firestore для RSVP данных + Telegram бот для организатора
 
 ## Прогресс по фазам
+
+### v1.0 (завершён)
 
 | Фаза | Статус | Планы |
 |------|--------|-------|
@@ -20,49 +23,25 @@
 | 2. Static Sections (Статические секции) | ● Complete | 2/2 done |
 | 3. Dynamic Components (Динамические компоненты) | ● Complete | 2/2 done |
 | 4. External Integrations (Внешние интеграции) | ● Complete | 2/2 done |
-| 5. Polish & Deploy (Полировка и деплой) | ◐ In Progress | 2/3 done |
-| 6. Enhanced Features (Расширенные фичи) | ○ Pending | — |
+| 5. Polish & Deploy (Полировка и деплой) | ● Complete | 3/3 done |
+| 6. Enhanced Features (Расширенные фичи) | ○ Deferred | — |
+
+### v2.0 (текущий)
+
+| Фаза | Статус | Планы |
+|------|--------|-------|
+| TBD | ○ Pending | — |
 
 ## Решения
 
 | Решение | Контекст | Дата |
 |---------|----------|------|
-| Next.js 15 + Tailwind CSS 4 + Framer Motion 12 | Стек подтверждён исследованием, оптимален для одностраничника | 2026-02-22 |
-| EmailJS для RSVP | 200 писем/мес бесплатно, достаточно для свадьбы, не нужен бэкенд | 2026-02-22 |
-| Яндекс.Карты iframe | Бесплатно, без API-ключа, хорошая детализация для РФ | 2026-02-22 |
-| Без бэкенда | Нулевой бюджет, serverless подход, данные в constants.ts | 2026-02-22 |
-| Lucide React для иконок | Tree-shakeable, единый стиль, лёгкий вес | 2026-02-22 |
-| date-fns 4 для countdown | Tree-shakeable, в 10x легче moment.js | 2026-02-22 |
-| Next.js 16 вместо 15 | create-next-app@latest устанавливает v16.1.6 как текущую стабильную | 2026-02-22 |
-| Cormorant Garamond как stand-in для Calmius | Визуально похожий тонкий serif с Cyrillic subset, вес 300 | 2026-02-22 |
-| SVG feTurbulence для текстуры бумаги | Inline SVG шум вместо внешнего PNG — ноль HTTP-запросов | 2026-02-22 |
-
-| Separate named exports в constants.ts | Tree-shaking, чистые импорты по секциям | 2026-02-22 |
-| CSS gradient для линий SectionHeading | Чище чем pseudo-elements, линии с утончением | 2026-02-22 |
-| AnimatedSection viewport.once: false | Анимации повторяются при каждом скролле по CONTEXT.md | 2026-02-22 |
-| SectionDots без hero и footer | Точки навигации только для средних секций (countdown—map) | 2026-02-22 |
-| Custom rAF smooth scroll | requestAnimationFrame с easeInOutCubic для стабильных 1200ms | 2026-02-22 |
-| Server components для секций без интерактивности | Hero, Info, Dresscode, Footer — чистый рендеринг данных из constants | 2026-02-22 |
-| Glassmorphism backdrop-blur-md bg-white/30 для Hero | Читаемость текста поверх SVG текстуры | 2026-02-22 |
-| IntersectionObserver multi-threshold | Пороги [0.1, 0.3, 0.5] для точного определения активной секции | 2026-02-22 |
-| Dual render для zigzag timeline | Отдельные mobile/desktop DOM блоки (md:hidden / hidden md:flex) | 2026-02-22 |
-| Wine/Heart/UtensilsCrossed/Cake/Sparkles иконки | Уникальная Lucide-иконка на каждый этап таймлайна | 2026-02-22 |
-| Inline card styling для countdown | Александритная рамка, спецразмеры чисел — не подходит generic Card | 2026-02-22 |
-| isHydrated pattern для SSR-safe хуков | Статические значения до клиентского useEffect, без hydration mismatch | 2026-02-22 |
-| Stagger viewport once:true для countdown | Вход по очереди один раз, далее только digit AnimatePresence | 2026-02-22 |
-| ParallaxSection speed=0.5 — 30% y-range | Subtle depth без дискомфорта, useScroll/useTransform | 2026-02-22 |
-| Conditional render для reduced-motion | Plain div вместо motion.div — полное отключение анимаций | 2026-02-22 |
-| CSS reduced-motion media query как fallback | Ловит CSS-анимации вне Framer Motion контроля | 2026-02-22 |
-| Direct &lt;a&gt; вместо Button для внешних ссылок | Button не пробрасывает target/rel, а route нужен target=_blank | 2026-02-22 |
-| Custom radio buttons для RSVP attendance | Styled labels с alexandrite card pattern вместо нативных radio | 2026-02-22 |
-| Error toast с auto-dismiss 5сек | Фиксированный overlay, не блокирует форму для повторной попытки | 2026-02-22 |
-| Single name field вместо firstName/lastName | Проще для неформального свадебного контекста | 2026-02-22 |
-| Фиксированные размеры шрифтов через breakpoints | text-2xl md:text-5xl вместо fluid typography | 2026-02-22 |
-| Карта 200px mobile / 350px desktop | Tailwind h-[200px] md:h-[350px] вместо HTML height | 2026-02-22 |
-| overflow-x hidden на body | Safety net от случайного горизонтального скролла | 2026-02-22 |
-| System serif для OG-изображения | Edge runtime не грузит кастомные шрифты надёжно, serif fallback для Cyrillic | 2026-02-22 |
-| Static import для blur placeholder | import из public/ вместо URL — автоматическая генерация blurDataURL | 2026-02-22 |
-| metadataBase на vercel.app | Временный URL для абсолютных OG-путей, обновится после деплоя | 2026-02-22 |
+| Firebase Firestore | Бесплатный Spark plan, хранение RSVP | 2026-02-24 |
+| EmailJS остаётся | Параллельное дублирование на email | 2026-02-24 |
+| Next.js API Routes (не Cloud Functions) | Проще, без дополнительных сервисов | 2026-02-24 |
+| Telegram Bot API напрямую | Минимальный бот, HTTP API достаточно | 2026-02-24 |
+| Бот только для организатора | Гостям бот не нужен | 2026-02-24 |
+| Бюджет $0 | Бесплатные тарифы всех сервисов | 2026-02-24 |
 
 ## Блокеры
 
@@ -70,26 +49,27 @@
 
 ## Ожидающие задачи
 
-- [ ] Получить конкретную дату свадьбы для countdown и текстов
-- [ ] Получить имена пары для Hero-секции и OG-тегов
-- [ ] Получить адрес и координаты места проведения для карты
-- [ ] Получить фотографии пары для галереи и Hero-секции
-- [ ] Настроить EmailJS аккаунт (service ID, template ID, public key)
+- [ ] Создать Firebase проект и получить конфигурацию (apiKey, authDomain, projectId)
+- [ ] Создать Telegram бота через @BotFather и получить токен
+- [ ] Завершить Vercel deploy (если не завершён)
 
 ## Накопленный контекст
 
-### Критические подводные камни (из исследования)
+### Из v1.0
 
-1. **Тяжёлые изображения** → `next/image`, WebP, lazy loading, blur placeholders
-2. **Карта не загружается** → iframe без API-ключа, статическая картинка как fallback
-3. **RSVP ломается при массовой рассылке** → лимиты EmailJS (200/мес), обработка ошибок, localStorage backup
-4. **Анимации тормозят на бюджетных Android** → только `transform`/`opacity`, `once: true`, `prefers-reduced-motion`
-5. **OG-теги не работают в мессенджерах** → статические meta, изображение 1200x630, тест через @WebpageBot
+- Next.js 16 + Tailwind 4 + Framer Motion 12 — рабочий стек
+- EmailJS интеграция работает для RSVP
+- RSVP форма: имя, статус (приду/не приду/+1), пожелания
+- Типы определены в `src/lib/types.ts` (RSVPFormData)
+- Константы в `src/lib/constants.ts`
+- Mobile-first, OG-теги настроены, анимации с reduced-motion
 
-### Флаги исследований по фазам
+### Критические подводные камни
 
-- **Phase 4:** Проверить актуальные API EmailJS и формат iframe Яндекс.Карт
-- **Phase 6:** Конверт-анимация — нетривиальная CSS/Framer Motion задача, требует прототипирования
+1. **Firebase SDK размер** → использовать modular imports (`firebase/firestore`) для tree-shaking
+2. **Telegram Bot API rate limits** → 30 msg/sec, достаточно для свадебного RSVP
+3. **Vercel serverless cold starts** → API Routes могут иметь задержку ~1-2с на первый вызов
+4. **Env variables** → Firebase config + Telegram token должны быть в Vercel env
 
 ## Метрики выполнения
 
@@ -104,10 +84,8 @@
 | 03-02 | 2 min | 2 | 5 |
 | 04-01 | 2 min | 2 | 4 |
 | 04-02 | 3 min | 2 | 2 |
-| 05-02 | 3 min | 2 | 7 |
 | 05-01 | 4 min | 2 | 5 |
+| 05-02 | 3 min | 2 | 7 |
 
 ---
-*Последнее обновление: 2026-02-22 после 05-03 Task 1*
-*Остановлено на: 05-03 Task 2 checkpoint — Vercel deploy requires auth + human verification*
-*Файл для продолжения: 05-03-PLAN.md (resume at Task 2)*
+*Последнее обновление: 2026-02-24 после старта Milestone v2.0*
