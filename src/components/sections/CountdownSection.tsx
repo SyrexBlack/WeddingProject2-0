@@ -144,15 +144,15 @@ export function CountdownSection() {
         <div className="mt-8">
           {isExpired ? (
             <ExpiredMessage reducedMotion={reducedMotion} />
-          ) : reducedMotion ? (
-            /* Reduced motion: plain div grid, no stagger, no animation */
+          ) : reducedMotion || !isHydrated ? (
+            /* Reduced motion or SSR: plain div grid, no animation, content visible */
             <div className="grid grid-cols-4 gap-3 md:gap-5 max-w-lg mx-auto">
               {timeUnits.map((unit) => (
                 <CountdownCard
                   key={unit.labels[0]}
                   value={isHydrated ? unit.value : 0}
                   labels={unit.labels}
-                  reducedMotion={reducedMotion}
+                  reducedMotion={true}
                 />
               ))}
             </div>

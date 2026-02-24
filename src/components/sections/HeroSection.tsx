@@ -20,7 +20,7 @@ export function HeroSection() {
           fill
           priority
           sizes="100vw"
-          quality={85}
+          quality={75}
           placeholder="blur"
           className="hidden md:block object-cover"
         />
@@ -30,7 +30,7 @@ export function HeroSection() {
           fill
           priority
           sizes="100vw"
-          quality={85}
+          quality={75}
           placeholder="blur"
           className="md:hidden object-cover"
         />

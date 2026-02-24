@@ -49,8 +49,8 @@ export function ParallaxSection({
         <div className="absolute inset-0 bg-gradient-to-b from-alexandrite-light/30 via-transparent to-alexandrite-light/20" />
       </motion.div>
 
-      {/* Foreground content — always static position */}
-      <div className="relative z-10">
+      {/* Foreground content — always static position, h-full so children can use absolute/h-full */}
+      <div className="relative z-10 h-full">
         {children}
       </div>
     </div>

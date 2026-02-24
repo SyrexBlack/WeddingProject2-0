@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
 
@@ -28,6 +29,9 @@ const variantAnimate = { opacity: 1, y: 0, x: 0 };
  * Framer Motion wrapper for scroll-triggered animations.
  * Per CONTEXT.md: fade-up default, 4 variants, slow ~0.9s, triggers every scroll.
  * When prefers-reduced-motion is set: renders plain div, content immediately visible.
+ *
+ * SSR renders content fully visible (no opacity:0) to prevent invisible content
+ * if JS fails to load. Animation initial state only applied after hydration.
  */
 export function AnimatedSection({
   children,
@@ -37,9 +41,14 @@ export function AnimatedSection({
   id,
 }: AnimatedSectionProps) {
   const prefersReducedMotion = useReducedMotion();
+  const [isHydrated, setIsHydrated] = useState(false);
 
-  // prefers-reduced-motion: render static div, no animation whatsoever
-  if (prefersReducedMotion) {
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
+  // prefers-reduced-motion or SSR: render plain div, content immediately visible
+  if (prefersReducedMotion || !isHydrated) {
     return (
       <div id={id} className={className}>
         {children}
@@ -59,8 +68,8 @@ export function AnimatedSection({
         delay,
       }}
       viewport={{
-        once: false, // срабатывают каждый раз при скролле
-        amount: 0.15, // порог ~15% видимости
+        once: false,
+        amount: 0.15,
       }}
     >
       {children}

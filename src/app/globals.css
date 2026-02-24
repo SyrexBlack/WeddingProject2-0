@@ -1,11 +1,11 @@
 @import "tailwindcss";
-@config "../../tailwind.config.ts";
 
 /* ===========================
-   CSS Custom Properties
-   Wedding Color Palette
+   Tailwind v4 Theme — CSS-first configuration
+   All custom design tokens registered via @theme
    =========================== */
-:root {
+@theme {
+  /* Colors */
   --color-alexandrite: #598c74;
   --color-alexandrite-light: rgba(89, 140, 116, 0.15);
   --color-alexandrite-medium: rgba(89, 140, 116, 0.3);
@@ -14,7 +14,28 @@
   --color-cream: #FFF8F0;
   --color-cream-dark: #FFF5E9;
   --color-sand: #F5E6D3;
+  --color-sage: rgba(89, 140, 116, 0.06);
+  --color-champagne: #D4C5A9;
+  --color-powder: #E8D5C4;
   --color-error: #C4463A;
+
+  /* Font families — next/font sets --font-calmius on <html> via class,
+     so we reference it here for Tailwind utility generation (font-calmius class).
+     The Cormorant Garamond font-family is injected by next/font automatically. */
+  --font-calmius: "Cormorant Garamond", serif;
+  --font-accent: "Cormorant Garamond", serif;
+
+  /* Border radius */
+  --radius-card: 10px;
+
+  /* Box shadows */
+  --shadow-card: 0 2px 16px rgba(60, 21, 24, 0.06);
+  --shadow-cardHover: 0 4px 24px rgba(60, 21, 24, 0.1);
+}
+
+/* Custom utility for max-w-content (768px) — not natively supported as theme token in TW v4 */
+@utility max-w-content {
+  max-width: 768px;
 }
 
 /* ===========================
@@ -34,24 +55,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Paper / linen texture overlay — subtle noise effect */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
-}
-
-/* Ensure main content sits above the texture */
-body > * {
-  position: relative;
-  z-index: 1;
-}
 
 /* ===========================
    Selection Colors
