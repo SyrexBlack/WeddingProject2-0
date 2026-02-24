@@ -41,9 +41,7 @@
 /* ===========================
    Base Styles
    =========================== */
-html {
-  scroll-behavior: smooth;
-}
+/* scroll-behavior removed — custom smoothScrollTo in SectionDots handles scroll animation */
 
 body {
   background-color: var(--color-cream);
