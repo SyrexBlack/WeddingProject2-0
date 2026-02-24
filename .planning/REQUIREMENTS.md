@@ -3,13 +3,11 @@
 **Defined:** 2026-02-22
 **Core Value:** Гость открывает ссылку из мессенджера, видит красивое приглашение со всей информацией и может подтвердить своё участие в один клик.
 
-## v1 Requirements
-
-Требования для первого релиза. Каждое привязано к фазе роадмапа.
+## v1 Requirements (Milestone v1.0 — Complete)
 
 ### Фундамент (Foundation)
 
-- [x] **FOUND-01**: Проект инициализирован на Next.js 15 (App Router) с TypeScript, Tailwind CSS 4, src-директорией
+- [x] **FOUND-01**: Проект инициализирован на Next.js 16 (App Router) с TypeScript, Tailwind CSS 4, src-директорией
 - [x] **FOUND-02**: Настроены шрифты через `next/font/google` без FOUT (заголовочный + текстовый шрифт)
 - [x] **FOUND-03**: Создан `lib/constants.ts` с типизированными данными свадьбы (имена, дата, место, программа, дресс-код)
 - [x] **FOUND-04**: Создана система типов TypeScript для всех данных (WeddingData, TimelineEvent, RSVPFormData)
@@ -22,14 +20,13 @@
 - [x] **CONT-03**: Информационная секция отображает карточки «Где», «Когда» с иконками Lucide
 - [x] **CONT-04**: Секция дресс-кода отображает текст и цветовую палитру свадьбы
 - [x] **CONT-05**: Секция программы дня отображает вертикальный таймлайн с временем и описанием каждого этапа
-- [ ] **CONT-06**: Фотогалерея отображает сетку из 6-12 фото с lazy loading и лайтбоксом при клике
 - [x] **CONT-07**: Footer отображает контактную информацию и копирайт
 
 ### Интерактив (Interactive Features)
 
 - [x] **INTER-01**: Интерактивная карта (Яндекс.Карты iframe) показывает место проведения с возможностью построить маршрут
 - [x] **INTER-02**: RSVP-форма принимает имя, статус участия (приду/не приду/+1) и пожелания
-- [x] **INTER-03**: RSVP-форма отправляет данные через EmailJS или Google Sheets без бэкенда
+- [x] **INTER-03**: RSVP-форма отправляет данные через EmailJS без бэкенда
 - [x] **INTER-04**: RSVP-форма показывает состояния: загрузка, успех, ошибка с визуальной обратной связью
 - [x] **INTER-05**: Секции появляются с анимацией fade-in при скролле через Framer Motion
 
@@ -38,12 +35,35 @@
 - [x] **DEPLOY-01**: Open Graph теги настроены — при отправке ссылки в Telegram/WhatsApp отображается карточка с фото и заголовком
 - [x] **DEPLOY-02**: Все изображения оптимизированы через `next/image` (WebP, lazy loading, blur placeholder)
 - [x] **DEPLOY-03**: Сайт корректно отображается на мобильных устройствах (от 320px) — mobile-first
-- [ ] **DEPLOY-04**: Сайт задеплоен на Vercel с HTTPS и доступен по публичному URL
-- [ ] **DEPLOY-05**: Lighthouse Performance score > 90 на мобильном
+- [x] **DEPLOY-04**: Сайт задеплоен на Vercel с HTTPS и доступен по публичному URL
+- [x] **DEPLOY-05**: Lighthouse Performance score > 90 на мобильном
 
-## v2 Requirements
+## v2 Requirements (Milestone v2.0 — Active)
 
-Отложены до стабильного v1. Добавляются после проверки на реальных гостях.
+Требования для текущего milestone. Каждое привязано к фазе роадмапа.
+
+### Firebase (База данных)
+
+- [ ] **FB-01**: RSVP данные сохраняются в Firebase Firestore при отправке формы
+- [ ] **FB-02**: Firestore Security Rules разрешают только создание документов (гости не могут читать/удалять чужие)
+- [ ] **FB-03**: EmailJS остаётся — форма отправляет параллельно в Firestore и EmailJS
+
+### API (Серверная часть)
+
+- [ ] **API-01**: Next.js API Route `/api/rsvp` принимает данные формы и записывает в Firestore
+- [ ] **API-02**: API Route отправляет уведомление в Telegram при каждом новом RSVP
+- [ ] **API-03**: API Route для Telegram webhook обрабатывает команды бота
+
+### Telegram Bot (Бот для организатора)
+
+- [ ] **BOT-01**: Бот отправляет уведомление организатору при каждом заполнении RSVP (имя, статус, пожелания)
+- [ ] **BOT-02**: Команда — показать список всех гостей с inline-кнопками
+- [ ] **BOT-03**: По нажатию на кнопку гостя — показать все данные этого гостя
+- [ ] **BOT-04**: Бот доступен только организатору (проверка chat ID)
+
+## v3 Requirements (Deferred)
+
+Отложены. Добавляются после стабильного v2.
 
 ### Расширенные фичи (Enhanced Features)
 
@@ -72,62 +92,51 @@
 | Реал-тайм чат | Модерация, серверные затраты; есть WhatsApp/Telegram-группы |
 | Платёжная система | Юридические сложности, комиссии; реквизиты текстом |
 | Мультиязычность (i18n) | Аудитория русскоязычная; сайт на одном языке |
-| Email-уведомления/напоминания | Требует email-сервис, шаблоны, GDPR; рассылка через мессенджеры |
-| Дашборд управления гостями | Полноценный бэкенд; Google Sheets как «дашборд» |
+| Firebase Cloud Functions | Используем Next.js API Routes — проще, без дополнительных сервисов |
+| Web-дашборд гостей | Telegram бот заменяет |
+| Firebase Auth на сайте | Гостям не нужна авторизация |
+| Бот для гостей | Бот только для организатора |
+| Статистика/экспорт в боте | Минимальный бот, без усложнений |
+| Long-polling бот | Webhook через Vercel API Route |
 | Загрузка фото от гостей | Хранилище, модерация; ссылка на Google Photos альбом |
 | Мобильное приложение | Только веб; mobile-first достаточно |
 | Docker/контейнеризация | Деплой на Vercel без контейнеров |
 
 ## Traceability
 
-Какие фазы покрывают какие требования. Обновлено при создании роадмапа.
+Какие фазы покрывают какие требования. Обновляется при создании роадмапа.
 
-### v1 Requirements → Phases
+### v1 Requirements → Phases (Complete)
 
-| Требование | Фаза | Описание фазы | Статус |
-|------------|------|---------------|--------|
-| FOUND-01 | Phase 1 | Foundation (Фундамент) | Complete |
-| FOUND-02 | Phase 1 | Foundation (Фундамент) | Complete |
-| FOUND-03 | Phase 1 | Foundation (Фундамент) | Complete |
-| FOUND-04 | Phase 1 | Foundation (Фундамент) | Complete |
-| FOUND-05 | Phase 1 | Foundation (Фундамент) | Complete |
-| CONT-01 | Phase 2 | Static Sections (Статические секции) | Pending |
-| CONT-03 | Phase 2 | Static Sections (Статические секции) | Pending |
-| CONT-04 | Phase 2 | Static Sections (Статические секции) | Pending |
-| CONT-05 | Phase 2 | Static Sections (Статические секции) | Pending |
-| CONT-07 | Phase 2 | Static Sections (Статические секции) | Pending |
-| CONT-02 | Phase 3 | Dynamic Components (Динамические компоненты) | Pending |
-| CONT-06 | Phase 3 | Dynamic Components (Динамические компоненты) | Pending |
-| INTER-05 | Phase 3 | Dynamic Components (Динамические компоненты) | Pending |
-| INTER-01 | Phase 4 | External Integrations (Внешние интеграции) | Pending |
-| INTER-02 | Phase 4 | External Integrations (Внешние интеграции) | Pending |
-| INTER-03 | Phase 4 | External Integrations (Внешние интеграции) | Pending |
-| INTER-04 | Phase 4 | External Integrations (Внешние интеграции) | Pending |
-| DEPLOY-01 | Phase 5 | Polish & Deploy (Полировка и деплой) | Pending |
-| DEPLOY-02 | Phase 5 | Polish & Deploy (Полировка и деплой) | Pending |
-| DEPLOY-03 | Phase 5 | Polish & Deploy (Полировка и деплой) | Pending |
-| DEPLOY-04 | Phase 5 | Polish & Deploy (Полировка и деплой) | Pending |
-| DEPLOY-05 | Phase 5 | Polish & Deploy (Полировка и деплой) | Pending |
+| Требование | Фаза | Статус |
+|------------|------|--------|
+| FOUND-01..05 | Phase 1 | ✓ Complete |
+| CONT-01,03,04,05,07 | Phase 2 | ✓ Complete |
+| CONT-02, INTER-05 | Phase 3 | ✓ Complete |
+| INTER-01..04 | Phase 4 | ✓ Complete |
+| DEPLOY-01..05 | Phase 5 | ✓ Complete |
 
 ### v2 Requirements → Phases
 
 | Требование | Фаза | Описание фазы | Статус |
 |------------|------|---------------|--------|
-| ENHANCE-01 | Phase 6 | Enhanced Features (Расширенные фичи) | Pending |
-| ENHANCE-02 | Phase 6 | Enhanced Features (Расширенные фичи) | Pending |
-| ENHANCE-03 | Phase 6 | Enhanced Features (Расширенные фичи) | Pending |
-| ENHANCE-04 | Phase 6 | Enhanced Features (Расширенные фичи) | Pending |
-| ENHANCE-05 | Phase 6 | Enhanced Features (Расширенные фичи) | Pending |
-| ENHANCE-06 | Phase 6 | Enhanced Features (Расширенные фичи) | Pending |
-| ENHANCE-07 | Phase 6 | Enhanced Features (Расширенные фичи) | Pending |
+| FB-01 | TBD | — | Pending |
+| FB-02 | TBD | — | Pending |
+| FB-03 | TBD | — | Pending |
+| API-01 | TBD | — | Pending |
+| API-02 | TBD | — | Pending |
+| API-03 | TBD | — | Pending |
+| BOT-01 | TBD | — | Pending |
+| BOT-02 | TBD | — | Pending |
+| BOT-03 | TBD | — | Pending |
+| BOT-04 | TBD | — | Pending |
 
 ### Покрытие
 
-- **v1 требований:** 22 всего
-- **Привязано к фазам:** 22
-- **Непокрыто:** 0 ✓
-- **v2 требований (Phase 6):** 7 (опциональная фаза)
+- **v1 требований:** 21 — все Complete ✓
+- **v2 требований:** 10 — все Pending
+- **Непокрыто:** 0 (после создания роадмапа)
 
 ---
 *Требования определены: 2026-02-22*
-*Последнее обновление: 2026-02-22 после создания роадмапа*
+*Последнее обновление: 2026-02-24 после старта Milestone v2.0*
