@@ -2,7 +2,9 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
-export async function GET() {
+export async function GET(request: Request) {
+  const heroImageUrl = new URL('/images/hero-gemini.png?v=20260302', request.url).toString();
+
   return new ImageResponse(
     (
       <div
@@ -12,26 +14,46 @@ export async function GET() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'linear-gradient(135deg, #598c74 0%, #D4C5A9 50%, #E8D5C4 100%)',
           fontFamily: 'serif',
           position: 'relative',
+          overflow: 'hidden',
+          background: '#1f2d24',
         }}
       >
-        {/* Decorative border frame */}
+        <img
+          src={heroImageUrl}
+          alt=""
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+
         <div
           style={{
             position: 'absolute',
-            top: 20,
-            left: 20,
-            right: 20,
-            bottom: 20,
-            border: '2px solid rgba(255, 255, 255, 0.4)',
-            borderRadius: 12,
+            inset: 0,
+            display: 'flex',
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.14) 40%, rgba(0,0,0,0.48) 100%)',
+          }}
+        />
+
+        <div
+          style={{
+            position: 'absolute',
+            top: 24,
+            left: 24,
+            right: 24,
+            bottom: 24,
+            border: '1.5px solid rgba(255, 255, 255, 0.45)',
+            borderRadius: 18,
             display: 'flex',
           }}
         />
 
-        {/* Content */}
         <div
           style={{
             display: 'flex',
@@ -40,46 +62,65 @@ export async function GET() {
             justifyContent: 'center',
             textAlign: 'center',
             color: 'white',
-            padding: '40px',
+            padding: '56px 72px',
+            position: 'relative',
           }}
         >
-          {/* Names */}
           <div
             style={{
-              fontSize: 64,
-              fontWeight: 300,
-              letterSpacing: '0.05em',
-              lineHeight: 1.2,
-              textShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+              fontSize: 22,
+              letterSpacing: '0.28em',
+              textTransform: 'uppercase',
+              opacity: 0.88,
+              textShadow: '0 2px 10px rgba(0, 0, 0, 0.35)',
+            }}
+          >
+            16 мая 2026
+          </div>
+
+          <div
+            style={{
+              fontSize: 72,
+              fontWeight: 500,
+              letterSpacing: '0.04em',
+              lineHeight: 1.1,
+              marginTop: 22,
+              textShadow: '0 4px 22px rgba(0, 0, 0, 0.38)',
             }}
           >
             Григорий & Полина
           </div>
 
-          {/* Subtitle */}
           <div
             style={{
-              fontSize: 26,
-              fontWeight: 300,
+              width: 120,
+              height: 1,
+              background: 'rgba(255, 255, 255, 0.6)',
               marginTop: 24,
-              opacity: 0.9,
-              textShadow: '0 1px 4px rgba(0, 0, 0, 0.1)',
+              display: 'flex',
+            }}
+          />
+
+          <div
+            style={{
+              fontSize: 28,
+              marginTop: 26,
+              opacity: 0.96,
+              textShadow: '0 2px 12px rgba(0, 0, 0, 0.35)',
             }}
           >
             Приглашение на свадьбу
           </div>
 
-          {/* Date + Venue */}
           <div
             style={{
-              fontSize: 22,
-              fontWeight: 300,
-              marginTop: 20,
-              opacity: 0.85,
-              textShadow: '0 1px 4px rgba(0, 0, 0, 0.1)',
+              fontSize: 24,
+              marginTop: 18,
+              opacity: 0.9,
+              textShadow: '0 2px 10px rgba(0, 0, 0, 0.32)',
             }}
           >
-            16 мая 2026 · База отдыха «Ёлки»
+            База отдыха «Ёлки»
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { calmius } from '@/lib/fonts';
 import './globals.css';
 
-const ogImageUrl = '/api/og?v=20260301';
+const ogImageUrl = '/api/og?v=20260302';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://елкичус.рф'),
