@@ -98,13 +98,13 @@ export const dressCodeData: DressCodeData = {
 
 /** Calendar: данные для Google Calendar + ICS */
 export const calendarData: CalendarData = {
-  eventTitle: 'Свадьба Григория и Полины',
+  eventTitle: 'Свадьба Григорий и Полина',
   description: 'Приглашаем вас разделить с нами этот особенный день! База отдыха «Ёлки».',
   location: 'База отдыха «Ёлки», рядом с г. Чусовой',
   durationHours: 8,
   buttonLabel: 'Добавить в календарь',
   googleLabel: 'Google Calendar',
-  yandexLabel: 'Яндекс Календарь',
+  yandexLabel: 'Яндекс Календарь (.ics)',
 };
 
 // ===========================

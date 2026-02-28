@@ -19,7 +19,7 @@ export async function GET(request: Request) {
   const end = new Date(start.getTime() + calendarData.durationHours * 60 * 60 * 1000);
   const now = new Date();
 
-  const uid = `wedding-anna-mikhail-${start.getTime()}@wedding-project2-0`;
+  const uid = `wedding-grigoriy-polina-${start.getTime()}@wedding-project2-0`;
   const sourceUrl = `${new URL(request.url).origin}/`;
 
   const lines = [

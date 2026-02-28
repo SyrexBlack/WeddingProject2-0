@@ -5,7 +5,7 @@ import { CalendarPlus, MapPinned, MessageCircleHeart } from 'lucide-react';
 import { calendarData, countdownData, mapData } from '@/lib/constants';
 
 function toGoogleDateTime(date: Date): string {
-  return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
 }
 
 function buildGoogleCalendarUrl(): string {

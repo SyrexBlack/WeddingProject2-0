@@ -13,7 +13,7 @@ interface HeroSectionProps {
 }
 
 function toGoogleDateTime(date: Date): string {
-  return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
 }
 
 function buildGoogleCalendarUrl(): string {
@@ -113,9 +113,7 @@ export function HeroSection({ guestName }: HeroSectionProps) {
             </Button>
 
             <a
-              href="https://calendar.yandex.ru/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/api/calendar"
               className="inline-flex items-center justify-center gap-2 py-2 px-6 text-base rounded-card font-calmius transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white/40 focus:ring-offset-2 border border-white/70 text-white hover:bg-white/15 w-full sm:w-auto min-w-[220px]"
             >
               <CalendarDays size={18} strokeWidth={1.5} />
