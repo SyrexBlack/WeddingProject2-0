@@ -154,6 +154,7 @@ export const sectionOrder: SectionConfig[] = [
   { id: 'info', title: 'О торжестве' },
   { id: 'timeline', title: 'Как пройдёт наш день' },
   { id: 'dresscode', title: 'Дресс-код' },
+  { id: 'organizer', title: 'Контакт организатора' },
   { id: 'rsvp', title: 'Ждём вашего ответа' },
   { id: 'map', title: 'Место проведения' },
   { id: 'footer', title: null },

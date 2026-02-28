@@ -16,6 +16,7 @@ export type SectionId =
   | 'info'
   | 'timeline'
   | 'dresscode'
+  | 'organizer'
   | 'rsvp'
   | 'map'
   | 'footer';

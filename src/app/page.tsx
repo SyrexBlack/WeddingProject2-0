@@ -7,6 +7,7 @@ import { FooterSection } from '@/components/sections/FooterSection';
 import { TimelineSection } from '@/components/sections/TimelineSection';
 import { CountdownSection } from '@/components/sections/CountdownSection';
 import { MapSection } from '@/components/sections/MapSection';
+import { OrganizerSection } from '@/components/sections/OrganizerSection';
 import { RSVPSection } from '@/components/sections/RSVPSection';
 import { SectionDivider } from '@/components/ui/SectionDivider';
 
@@ -61,6 +62,12 @@ export default async function Home({ searchParams }: HomePageProps) {
         </div>
 
         <SectionDivider variant="dot" />
+
+        <div className="section-cream">
+          <OrganizerSection />
+        </div>
+
+        <SectionDivider variant="line" />
 
         <div className="section-cream">
           <RSVPSection guestName={guestName} />

@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/og';
 export const runtime = 'edge';
 
 const HERO_FONT_URL =
-  'https://fonts.gstatic.com/s/cormorantgaramond/v20/co3bmX5slCNuHLi8bLeY9MK7whWMhyjQAllvuQWJ.woff2';
+  'https://fonts.gstatic.com/s/cormorantgaramond/v21/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_v86GnM.ttf';
 
 export async function GET(request: Request) {
   const heroImageUrl = new URL('/images/hero-gemini.png?v=20260302', request.url).toString();

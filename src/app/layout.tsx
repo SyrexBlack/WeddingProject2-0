@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { calmius } from '@/lib/fonts';
 import './globals.css';
 
-const ogImageUrl = '/api/og?v=20260304';
+const ogImageUrl = '/api/og?v=20260305';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://wedding-project2-0.vercel.app'),
