@@ -114,7 +114,8 @@ export const calendarData: CalendarData = {
 /** RSVP: контакт для отображения при ошибке отправки */
 export const rsvpConfig: { contact: ContactInfo } = {
   contact: {
-    phone: '',
+    name: 'Эмилия',
+    phone: '+79097336564',
     telegramUrl: 'https://t.me/SyrexIsBack',
     whatsappUrl: '',
   },

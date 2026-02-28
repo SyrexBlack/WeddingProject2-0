@@ -2,8 +2,12 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
+const HERO_FONT_URL =
+  'https://fonts.gstatic.com/s/cormorantgaramond/v20/co3bmX5slCNuHLi8bLeY9MK7whWMhyjQAllvuQWJ.woff2';
+
 export async function GET(request: Request) {
   const heroImageUrl = new URL('/images/hero-gemini.png?v=20260302', request.url).toString();
+  const fontData = await fetch(HERO_FONT_URL).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
     (
@@ -14,7 +18,7 @@ export async function GET(request: Request) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontFamily: 'serif',
+          fontFamily: 'HeroSerif',
           position: 'relative',
           overflow: 'hidden',
           background: '#1f2d24',
@@ -128,6 +132,14 @@ export async function GET(request: Request) {
     {
       width: 1200,
       height: 630,
+      fonts: [
+        {
+          name: 'HeroSerif',
+          data: fontData,
+          weight: 400,
+          style: 'normal',
+        },
+      ],
       headers: {
         'Cache-Control': 'public, max-age=0, s-maxage=0, must-revalidate',
       },

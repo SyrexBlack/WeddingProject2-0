@@ -400,17 +400,28 @@ export function RSVPSection({ guestName = '' }: RSVPSectionProps) {
                   </button>
                 )}
 
-                <p className="text-sm text-center mt-2 text-chocolate/55">
-                  Или напишите нам:{' '}
+                <div className="text-sm text-center mt-2 text-chocolate/60 space-y-1.5">
+                  <p>
+                    Организатор: <span className="font-medium text-chocolate">{rsvpConfig.contact.name}</span>
+                  </p>
                   <a
-                    href={rsvpConfig.contact.telegramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-alexandrite underline hover:text-alexandrite/80 transition-colors"
+                    href={`tel:${rsvpConfig.contact.phone}`}
+                    className="block text-alexandrite underline hover:text-alexandrite/80 transition-colors"
                   >
-                    Telegram
+                    {rsvpConfig.contact.phone}
                   </a>
-                </p>
+                  <p>
+                    Или напишите в{' '}
+                    <a
+                      href={rsvpConfig.contact.telegramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-alexandrite underline hover:text-alexandrite/80 transition-colors"
+                    >
+                      Telegram
+                    </a>
+                  </p>
+                </div>
               </motion.form>
             )}
           </AnimatePresence>

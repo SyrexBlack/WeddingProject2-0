@@ -153,6 +153,8 @@ export interface RSVPFormData {
 
 /** Контакт для отображения при ошибке RSVP */
 export interface ContactInfo {
+  /** Имя контакта */
+  name: string;
   /** Телефон */
   phone: string;
   /** Ссылка на Telegram */
