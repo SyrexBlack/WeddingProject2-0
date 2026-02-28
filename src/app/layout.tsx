@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 import { calmius } from '@/lib/fonts';
 import './globals.css';
 
-const ogImageUrl = '/api/og?v=20260302';
+const ogImageUrl = '/api/og?v=20260303';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://елкичус.рф'),
+  metadataBase: new URL('https://wedding-project2-0.vercel.app'),
   title: 'Григорий & Полина — Приглашение на свадьбу',
   description: '16 мая 2026 · База отдыха «Ёлки»',
   openGraph: {
