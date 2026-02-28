@@ -7,14 +7,12 @@ import { footerData } from '@/lib/constants';
 export function FooterSection() {
   return (
     <footer id="footer" className="bg-gradient-to-b from-transparent to-chocolate/[0.04]">
-      {/* Decorative couple initials */}
       <div className="text-center pt-12 pb-2">
-        <p className="text-2xl md:text-3xl font-calmius text-chocolate/30 italic tracking-wider">
-          А &hearts; М
+        <p className="text-2xl md:text-3xl font-calmius text-chocolate/45 italic tracking-wider">
+          Г &hearts; П
         </p>
       </div>
 
-      {/* Gradient line — alexandrite, matching SectionHeading style */}
       <div
         className="h-[1.5px]"
         style={{
@@ -24,9 +22,8 @@ export function FooterSection() {
         aria-hidden="true"
       />
 
-      {/* Copyright */}
-      <div className="py-6 md:py-8 text-center">
-        <p className="text-xs tracking-widest uppercase opacity-40">{footerData.text}</p>
+      <div className="py-6 md:py-8 text-center pb-28 lg:pb-8">
+        <p className="text-xs tracking-widest uppercase text-chocolate/60">{footerData.text}</p>
       </div>
     </footer>
   );

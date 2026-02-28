@@ -22,7 +22,17 @@ const dotSections = sectionOrder.filter(
  * Smooth scroll to an element with custom duration using requestAnimationFrame.
  * CSS scroll-behavior: smooth has inconsistent speed across browsers.
  */
-function smoothScrollTo(element: HTMLElement, duration = 1200) {
+function smoothScrollTo(
+  element: HTMLElement,
+  options: { duration?: number; reducedMotion?: boolean } = {}
+) {
+  const { duration = 1200, reducedMotion = false } = options;
+
+  if (reducedMotion) {
+    element.scrollIntoView({ behavior: 'auto', block: 'start' });
+    return;
+  }
+
   const start = window.scrollY;
   const target = element.getBoundingClientRect().top + window.scrollY;
   const distance = target - start;
@@ -50,9 +60,9 @@ function smoothScrollTo(element: HTMLElement, duration = 1200) {
 
 export function SectionDots() {
   const [activeSection, setActiveSection] = useState<string>('');
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   const handleIntersect = useCallback((entries: IntersectionObserverEntry[]) => {
-    // Find the entry with the most visibility
     let maxRatio = 0;
     let maxId = '';
 
@@ -69,12 +79,21 @@ export function SectionDots() {
   }, []);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updatePreference = () => setReducedMotion(mediaQuery.matches);
+
+    updatePreference();
+    mediaQuery.addEventListener('change', updatePreference);
+
+    return () => mediaQuery.removeEventListener('change', updatePreference);
+  }, []);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(handleIntersect, {
       threshold: [0.1, 0.3, 0.5],
       rootMargin: '0px',
     });
 
-    // Observe all section elements
     for (const section of sectionOrder) {
       const el = document.getElementById(section.id);
       if (el) {
@@ -88,7 +107,7 @@ export function SectionDots() {
   const handleClick = (sectionId: string) => {
     const el = document.getElementById(sectionId);
     if (el) {
-      smoothScrollTo(el, 1200);
+      smoothScrollTo(el, { duration: 1200, reducedMotion });
     }
   };
 

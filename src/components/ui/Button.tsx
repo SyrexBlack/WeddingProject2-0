@@ -1,4 +1,8 @@
-import type { ReactNode, ButtonHTMLAttributes } from 'react';
+import type {
+  ReactNode,
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+} from 'react';
 
 type ButtonVariant = 'outline' | 'filled';
 type ButtonSize = 'normal' | 'large';
@@ -11,14 +15,17 @@ interface ButtonBaseProps {
   disabled?: boolean;
 }
 
-interface ButtonAsButton extends ButtonBaseProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof ButtonBaseProps> {
+interface ButtonAsButton
+  extends ButtonBaseProps,
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof ButtonBaseProps> {
   href?: undefined;
 }
 
-interface ButtonAsLink extends ButtonBaseProps {
+interface ButtonAsLink
+  extends ButtonBaseProps,
+    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof ButtonBaseProps> {
   href: string;
   type?: never;
-  onClick?: never;
 }
 
 type ButtonProps = ButtonAsButton | ButtonAsLink;
@@ -37,16 +44,15 @@ export function Button({
   href,
   ...rest
 }: ButtonProps) {
-  const sizeClasses = size === 'large'
-    ? 'py-3 px-8 text-lg'
-    : 'py-2 px-6 text-base';
+  const sizeClasses = size === 'large' ? 'py-3 px-8 text-lg' : 'py-2 px-6 text-base';
 
-  const variantClasses = variant === 'filled'
-    ? 'bg-alexandrite text-white hover:bg-alexandrite/85 border border-transparent'
-    : 'border border-alexandrite text-alexandrite hover:bg-alexandrite hover:text-white';
+  const variantClasses =
+    variant === 'filled'
+      ? 'bg-alexandrite text-white hover:bg-alexandrite/85 border border-transparent'
+      : 'border border-alexandrite text-alexandrite hover:bg-alexandrite hover:text-white';
 
   const baseClasses = [
-    'inline-flex items-center justify-center',
+    'inline-flex items-center justify-center gap-2',
     'rounded-card',
     'font-calmius',
     'transition-all duration-300 ease-in-out',
@@ -59,7 +65,12 @@ export function Button({
 
   if (href) {
     return (
-      <a href={href} className={baseClasses}>
+      <a
+        href={href}
+        className={baseClasses}
+        aria-disabled={disabled || undefined}
+        {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
+      >
         {children}
       </a>
     );

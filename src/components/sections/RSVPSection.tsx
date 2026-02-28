@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
 import { rsvpConfig } from '@/lib/constants';
@@ -11,45 +11,62 @@ import { Card } from '@/components/ui/Card';
 import { Check, Loader2, Send } from 'lucide-react';
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
-type AttendanceOption = 'attending' | 'attending-plus-one' | 'not-attending';
+type AttendanceOption = 'attending' | 'not-attending';
 
-const attendanceOptions: { value: AttendanceOption; label: string }[] = [
-  { value: 'attending', label: 'Приду' },
-  { value: 'attending-plus-one', label: 'Приду с парой (+1)' },
-  { value: 'not-attending', label: 'Не смогу прийти' },
-];
+interface RSVPSectionProps {
+  guestName?: string;
+}
+
+interface InitialSubmissionState {
+  alreadySubmitted: boolean;
+  savedName: string;
+  formStatus: FormStatus;
+}
+
+function getInitialSubmissionState(): InitialSubmissionState {
+  if (typeof window === 'undefined') {
+    return {
+      alreadySubmitted: false,
+      savedName: '',
+      formStatus: 'idle',
+    };
+  }
+
+  const submitted = localStorage.getItem('rsvp_submitted');
+  const storedName = localStorage.getItem('rsvp_name') || '';
+
+  if (submitted === 'true') {
+    return {
+      alreadySubmitted: true,
+      savedName: storedName,
+      formStatus: 'success',
+    };
+  }
+
+  return {
+    alreadySubmitted: false,
+    savedName: '',
+    formStatus: 'idle',
+  };
+}
 
 /**
  * RSVP section — "Ждём вашего ответа" with form, EmailJS, localStorage tracking.
- * Client component: uses useState, useEffect, EmailJS, localStorage.
  */
-export function RSVPSection() {
-  const [name, setName] = useState('');
+export function RSVPSection({ guestName = '' }: RSVPSectionProps) {
+  const initialSubmissionState = useMemo(() => getInitialSubmissionState(), []);
+
+  const [name, setName] = useState(guestName || '');
   const [attendance, setAttendance] = useState<AttendanceOption>('attending');
+  const [plusOne, setPlusOne] = useState(false);
   const [wishes, setWishes] = useState('');
-  const [formStatus, setFormStatus] = useState<FormStatus>('idle');
+  const [formStatus, setFormStatus] = useState<FormStatus>(initialSubmissionState.formStatus);
   const [errorMessage, setErrorMessage] = useState('');
-  const [alreadySubmitted, setAlreadySubmitted] = useState(false);
+  const [alreadySubmitted, setAlreadySubmitted] = useState(initialSubmissionState.alreadySubmitted);
   const [showConfirmResubmit, setShowConfirmResubmit] = useState(false);
   const [nameError, setNameError] = useState('');
-  const [savedName, setSavedName] = useState('');
+  const [savedName, setSavedName] = useState(initialSubmissionState.savedName);
 
-  // SSR-safe localStorage check on mount
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const submitted = localStorage.getItem('rsvp_submitted');
-      const storedName = localStorage.getItem('rsvp_name');
-      if (submitted === 'true') {
-        setAlreadySubmitted(true);
-        setFormStatus('success');
-        if (storedName) {
-          setSavedName(storedName);
-        }
-      }
-    }
-  }, []);
-
-  // Auto-dismiss error toast after 5 seconds
   useEffect(() => {
     if (formStatus === 'error') {
       const timer = setTimeout(() => {
@@ -65,13 +82,11 @@ export function RSVPSection() {
       e.preventDefault();
       setNameError('');
 
-      // Validate name
       if (name.trim().length < 2) {
         setNameError('Пожалуйста, введите ваше имя (минимум 2 символа)');
         return;
       }
 
-      // Check for re-submission
       if (alreadySubmitted && !showConfirmResubmit) {
         setShowConfirmResubmit(true);
         return;
@@ -80,7 +95,6 @@ export function RSVPSection() {
       setFormStatus('loading');
       setErrorMessage('');
 
-      // Check env vars
       const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
       const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
       const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
@@ -99,13 +113,8 @@ export function RSVPSection() {
           templateId,
           {
             from_name: name.trim(),
-            status:
-              attendance === 'not-attending'
-                ? 'Не смогу прийти'
-                : attendance === 'attending-plus-one'
-                  ? 'Приду с парой (+1)'
-                  : 'Приду',
-            plus_one: attendance === 'attending-plus-one' ? 'Да' : 'Нет',
+            status: attendance === 'not-attending' ? 'Не смогу прийти' : 'Приду',
+            plus_one: attendance === 'attending' && plusOne ? 'Да' : 'Нет',
             wishes: wishes.trim() || '(без пожеланий)',
           },
           { publicKey }
@@ -126,7 +135,7 @@ export function RSVPSection() {
         );
       }
     },
-    [name, attendance, wishes, alreadySubmitted, showConfirmResubmit]
+    [name, attendance, plusOne, wishes, alreadySubmitted, showConfirmResubmit]
   );
 
   const isLoading = formStatus === 'loading';
@@ -139,7 +148,6 @@ export function RSVPSection() {
         <Card className="mt-10 max-w-lg mx-auto">
           <AnimatePresence mode="wait">
             {formStatus === 'success' ? (
-              /* ====== Success State ====== */
               <motion.div
                 key="success"
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -156,10 +164,9 @@ export function RSVPSection() {
                 <p className="text-xl font-calmius text-chocolate">
                   Спасибо, {savedName || name}!
                 </p>
-                <p className="text-chocolate/70 mt-3">Ваш ответ принят</p>
+                <p className="text-chocolate/75 mt-3">Ваш ответ принят</p>
               </motion.div>
             ) : (
-              /* ====== Form State ====== */
               <motion.form
                 key="form"
                 initial={false}
@@ -169,7 +176,6 @@ export function RSVPSection() {
                 onSubmit={handleSubmit}
                 className="space-y-5"
               >
-                {/* Name input */}
                 <div>
                   <label
                     htmlFor="rsvp-name"
@@ -189,55 +195,141 @@ export function RSVPSection() {
                     placeholder="Как к вам обращаться?"
                     className="w-full px-4 py-3 rounded-lg border border-chocolate/10 bg-white/60 font-calmius text-base text-chocolate focus:outline-none focus:ring-2 focus:ring-alexandrite/30 focus:border-alexandrite transition-colors disabled:opacity-50"
                   />
+                  {guestName && name.trim() === guestName && (
+                    <p className="text-xs text-chocolate/60 mt-1.5">
+                      Имя подставлено из персонального приглашения ({guestName})
+                    </p>
+                  )}
                   {nameError && (
                     <p className="text-error text-sm mt-1">{nameError}</p>
                   )}
                 </div>
 
-                {/* Attendance radio group */}
                 <div>
                   <p className="block text-sm font-calmius text-chocolate/80 mb-2">
                     Сможете прийти?
                   </p>
                   <div className="flex flex-col gap-2">
-                    {attendanceOptions.map((option) => (
+                    <label
+                      className={`flex items-center gap-3 px-4 py-3 rounded-lg border cursor-pointer transition-all duration-200 ${
+                        attendance === 'attending'
+                          ? 'border-alexandrite bg-alexandrite/5 text-chocolate'
+                          : 'border-chocolate/10 bg-white/40 text-chocolate/70 hover:border-chocolate/20'
+                      } ${isLoading ? 'opacity-50 pointer-events-none' : ''}`}
+                    >
+                      <input
+                        type="radio"
+                        name="attendance"
+                        value="attending"
+                        checked={attendance === 'attending'}
+                        onChange={() => setAttendance('attending')}
+                        disabled={isLoading}
+                        className="sr-only"
+                      />
+                      <span
+                        className={`w-4 h-4 rounded-full border-2 flex-shrink-0 flex items-center justify-center ${
+                          attendance === 'attending' ? 'border-alexandrite' : 'border-chocolate/20'
+                        }`}
+                      >
+                        {attendance === 'attending' && (
+                          <span className="w-2 h-2 rounded-full bg-alexandrite" />
+                        )}
+                      </span>
+                      <span className="font-calmius text-sm tracking-wide">Да, приду</span>
+                    </label>
+
+                    <label
+                      className={`flex items-center gap-3 px-4 py-3 rounded-lg border cursor-pointer transition-all duration-200 ${
+                        attendance === 'not-attending'
+                          ? 'border-alexandrite bg-alexandrite/5 text-chocolate'
+                          : 'border-chocolate/10 bg-white/40 text-chocolate/70 hover:border-chocolate/20'
+                      } ${isLoading ? 'opacity-50 pointer-events-none' : ''}`}
+                    >
+                      <input
+                        type="radio"
+                        name="attendance"
+                        value="not-attending"
+                        checked={attendance === 'not-attending'}
+                        onChange={() => {
+                          setAttendance('not-attending');
+                          setPlusOne(false);
+                        }}
+                        disabled={isLoading}
+                        className="sr-only"
+                      />
+                      <span
+                        className={`w-4 h-4 rounded-full border-2 flex-shrink-0 flex items-center justify-center ${
+                          attendance === 'not-attending' ? 'border-alexandrite' : 'border-chocolate/20'
+                        }`}
+                      >
+                        {attendance === 'not-attending' && (
+                          <span className="w-2 h-2 rounded-full bg-alexandrite" />
+                        )}
+                      </span>
+                      <span className="font-calmius text-sm tracking-wide">Нет, не смогу</span>
+                    </label>
+                  </div>
+                </div>
+
+                {attendance === 'attending' && (
+                  <div>
+                    <p className="block text-sm font-calmius text-chocolate/80 mb-2">Будете с парой (+1)?</p>
+                    <div className="flex flex-col sm:flex-row gap-2">
                       <label
-                        key={option.value}
-                        className={`flex items-center gap-3 px-4 py-3 rounded-lg border cursor-pointer transition-all duration-200 ${
-                          attendance === option.value
+                        className={`flex items-center gap-3 px-4 py-3 rounded-lg border cursor-pointer transition-all duration-200 flex-1 ${
+                          plusOne
                             ? 'border-alexandrite bg-alexandrite/5 text-chocolate'
                             : 'border-chocolate/10 bg-white/40 text-chocolate/70 hover:border-chocolate/20'
                         } ${isLoading ? 'opacity-50 pointer-events-none' : ''}`}
                       >
                         <input
                           type="radio"
-                          name="attendance"
-                          value={option.value}
-                          checked={attendance === option.value}
-                          onChange={() => setAttendance(option.value)}
+                          name="plusOne"
+                          value="yes"
+                          checked={plusOne}
+                          onChange={() => setPlusOne(true)}
                           disabled={isLoading}
                           className="sr-only"
                         />
                         <span
                           className={`w-4 h-4 rounded-full border-2 flex-shrink-0 flex items-center justify-center ${
-                            attendance === option.value
-                              ? 'border-alexandrite'
-                              : 'border-chocolate/20'
+                            plusOne ? 'border-alexandrite' : 'border-chocolate/20'
                           }`}
                         >
-                          {attendance === option.value && (
-                            <span className="w-2 h-2 rounded-full bg-alexandrite" />
-                          )}
+                          {plusOne && <span className="w-2 h-2 rounded-full bg-alexandrite" />}
                         </span>
-                        <span className="font-calmius text-sm tracking-wide">
-                          {option.label}
-                        </span>
+                        <span className="font-calmius text-sm tracking-wide">Да</span>
                       </label>
-                    ))}
-                  </div>
-                </div>
 
-                {/* Wishes textarea */}
+                      <label
+                        className={`flex items-center gap-3 px-4 py-3 rounded-lg border cursor-pointer transition-all duration-200 flex-1 ${
+                          !plusOne
+                            ? 'border-alexandrite bg-alexandrite/5 text-chocolate'
+                            : 'border-chocolate/10 bg-white/40 text-chocolate/70 hover:border-chocolate/20'
+                        } ${isLoading ? 'opacity-50 pointer-events-none' : ''}`}
+                      >
+                        <input
+                          type="radio"
+                          name="plusOne"
+                          value="no"
+                          checked={!plusOne}
+                          onChange={() => setPlusOne(false)}
+                          disabled={isLoading}
+                          className="sr-only"
+                        />
+                        <span
+                          className={`w-4 h-4 rounded-full border-2 flex-shrink-0 flex items-center justify-center ${
+                            !plusOne ? 'border-alexandrite' : 'border-chocolate/20'
+                          }`}
+                        >
+                          {!plusOne && <span className="w-2 h-2 rounded-full bg-alexandrite" />}
+                        </span>
+                        <span className="font-calmius text-sm tracking-wide">Нет</span>
+                      </label>
+                    </div>
+                  </div>
+                )}
+
                 <div>
                   <label
                     htmlFor="rsvp-wishes"
@@ -257,7 +349,6 @@ export function RSVPSection() {
                   />
                 </div>
 
-                {/* Re-submission confirmation */}
                 {showConfirmResubmit && (
                   <div className="bg-alexandrite/10 border border-alexandrite/30 rounded-card p-4 text-center">
                     <p className="text-sm font-calmius text-chocolate mb-3">
@@ -281,7 +372,6 @@ export function RSVPSection() {
                   </div>
                 )}
 
-                {/* Submit button */}
                 {!showConfirmResubmit && (
                   <button
                     type="submit"
@@ -310,8 +400,7 @@ export function RSVPSection() {
                   </button>
                 )}
 
-                {/* Contact fallback — always visible */}
-                <p className="text-sm text-center mt-2 text-chocolate/50">
+                <p className="text-sm text-center mt-2 text-chocolate/55">
                   Или напишите нам:{' '}
                   <a
                     href={rsvpConfig.contact.telegramUrl}
@@ -328,7 +417,6 @@ export function RSVPSection() {
         </Card>
       </Container>
 
-      {/* ====== Error Toast ====== */}
       <AnimatePresence>
         {formStatus === 'error' && errorMessage && (
           <motion.div
@@ -338,7 +426,7 @@ export function RSVPSection() {
             transition={{ duration: 0.3 }}
             className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-sm w-[calc(100%-2rem)]"
           >
-             <div className="bg-error text-white px-5 py-3 rounded-lg shadow-xl text-center font-calmius text-sm">
+            <div className="bg-error text-white px-5 py-3 rounded-lg shadow-xl text-center font-calmius text-sm">
               {errorMessage}
             </div>
           </motion.div>

@@ -53,7 +53,7 @@ export async function GET() {
               textShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
             }}
           >
-            Анна & Михаил
+            Григорий & Полина
           </div>
 
           {/* Subtitle */}
@@ -79,7 +79,7 @@ export async function GET() {
               textShadow: '0 1px 4px rgba(0, 0, 0, 0.1)',
             }}
           >
-            15 августа 2026 · Усадьба «Архангельское»
+            16 мая 2026 · База отдыха «Ёлки»
           </div>
         </div>
       </div>

@@ -13,7 +13,6 @@ const iconMap = {
 
 /**
  * Info section — "О торжестве" with two-column card layout.
- * Warmer, more inviting design with decorative accents and serif titles.
  */
 export function InfoSection() {
   return (
@@ -28,14 +27,14 @@ export function InfoSection() {
                 <div className="w-12 h-[2px] bg-alexandrite/30 mx-auto mb-5" />
                 <Icon
                   size={36}
-                  className="text-alexandrite mx-auto mb-4 opacity-70"
+                  className="text-alexandrite mx-auto mb-4 opacity-75"
                   strokeWidth={1.5}
                 />
-                <h3 className="text-xl md:text-2xl font-calmius font-medium text-center mb-2">
+                <h3 className="text-xl md:text-2xl font-calmius font-medium text-center mb-2 text-chocolate">
                   {card.title}
                 </h3>
                 {card.lines.map((line, i) => (
-                  <p key={i} className="text-center opacity-80 leading-relaxed">
+                  <p key={i} className="text-center text-chocolate/80 leading-relaxed">
                     {line}
                   </p>
                 ))}

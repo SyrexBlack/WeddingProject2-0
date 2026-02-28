@@ -3,12 +3,12 @@ import { calmius } from '@/lib/fonts';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://wedding-project2-0.vercel.app'),
-  title: 'Анна & Михаил — Приглашение на свадьбу',
-  description: '15 августа 2026 · Усадьба «Архангельское»',
+  metadataBase: new URL('https://елкичус.рф'),
+  title: 'Григорий & Полина — Приглашение на свадьбу',
+  description: '16 мая 2026 · База отдыха «Ёлки»',
   openGraph: {
-    title: 'Анна & Михаил — Приглашение на свадьбу',
-    description: '15 августа 2026 · Усадьба «Архангельское»',
+    title: 'Григорий & Полина — Приглашение на свадьбу',
+    description: '16 мая 2026 · База отдыха «Ёлки»',
     type: 'website',
     locale: 'ru_RU',
     images: [
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
         url: '/api/og',
         width: 1200,
         height: 630,
-        alt: 'Анна & Михаил — Приглашение на свадьбу',
+        alt: 'Григорий & Полина — Приглашение на свадьбу',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Анна & Михаил — Приглашение на свадьбу',
-    description: '15 августа 2026 · Усадьба «Архангельское»',
+    title: 'Григорий & Полина — Приглашение на свадьбу',
+    description: '16 мая 2026 · База отдыха «Ёлки»',
     images: ['/api/og'],
   },
 };

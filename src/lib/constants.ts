@@ -15,6 +15,7 @@ import type {
   MapData,
   FooterData,
   SectionConfig,
+  CalendarData,
 } from '@/lib/types';
 
 // ===========================
@@ -23,10 +24,11 @@ import type {
 
 /** Hero: имена (амперсанд), дата прописью, поэтичная фраза */
 export const heroData: HeroData = {
-  coupleNames: 'Анна & Михаил',
-  date: '15 августа 2026',
-  venue: 'Усадьба «Архангельское»',
+  coupleNames: 'Григорий & Полина',
+  date: '16 мая 2026',
+  venue: 'База отдыха «Ёлки»',
   invitationPhrase: 'Приглашаем вас разделить с нами этот особенный день',
+  personalizedGreeting: 'Дорогой гость',
   backgroundImageDesktop: '/images/hero-desktop.jpg',
   backgroundImageMobile: '/images/hero-mobile.jpg',
 };
@@ -37,8 +39,8 @@ export const heroData: HeroData = {
 
 /** Countdown: дата ISO, timezone Moscow, сообщение после свадьбы */
 export const countdownData: CountdownData = {
-  weddingDate: '2026-08-15T15:00:00+03:00', // 15:00 по Москве
-  timezone: 'Europe/Moscow',
+  weddingDate: '2026-05-16T15:00:00+05:00', // 15:00 по Перми
+  timezone: 'Asia/Yekaterinburg',
   expiredMessage: 'Спасибо, что были с нами!',
 };
 
@@ -51,12 +53,12 @@ export const infoCards: InfoCard[] = [
   {
     type: 'when',
     title: 'Когда',
-    lines: ['15 августа 2026', 'Сбор гостей в 15:00'],
+    lines: ['16 мая 2026', 'Сбор гостей в 15:00'],
   },
   {
     type: 'where',
     title: 'Где',
-    lines: ['Усадьба «Архангельское»', 'Московская область, Красногорский район'],
+    lines: ['База отдыха «Ёлки»', '7 минут езды от г. Чусовой'],
   },
 ];
 
@@ -70,7 +72,7 @@ export const timelineData: TimelineEvent[] = [
   { time: '16:00', title: 'Церемония', description: 'Торжественная регистрация брака' },
   { time: '17:00', title: 'Банкет', description: 'Праздничный ужин и поздравления' },
   { time: '20:00', title: 'Свадебный торт', description: 'Традиционное разрезание торта' },
-  { time: '22:00', title: 'Завершение вечера', description: 'Финальный танец и прощание' },
+  { time: '22:00', title: 'Свободное общение', description: 'Остаёмся с ночёвкой — можно отдыхать, общаться и наслаждаться вечером без спешки' },
 ];
 
 // ===========================
@@ -79,14 +81,30 @@ export const timelineData: TimelineEvent[] = [
 
 /** Дресс-код: короткая фраза + 5 цветовых образцов палитры */
 export const dressCodeData: DressCodeData = {
-  description: 'Мы будем рады видеть вас в нарядах пастельных и природных оттенков',
+  description: 'Мы будем рады видеть Вас в предложенной цветовой гамме',
   palette: [
-    { color: '#598c74', name: 'Александрит' },
-    { color: '#D4C5A9', name: 'Шампань' },
-    { color: '#C9B99A', name: 'Песочный' },
-    { color: '#E8D5C4', name: 'Пудровый' },
-    { color: '#B8C5B2', name: 'Шалфей' },
+    { color: '#6b2128', name: 'Бордовый' },
+    { color: '#051c2e', name: 'Ночной синий' },
+    { color: '#f4d5aa', name: 'Ваниль' },
+    { color: '#3b302c', name: 'Мокко' },
+    { color: '#cea086', name: 'Терракота' },
+    { color: '#243628', name: 'Тёмный лес' },
   ],
+};
+
+// ===========================
+// Календарь
+// ===========================
+
+/** Calendar: данные для Google Calendar + ICS */
+export const calendarData: CalendarData = {
+  eventTitle: 'Свадьба Григория и Полины',
+  description: 'Приглашаем вас разделить с нами этот особенный день! База отдыха «Ёлки».',
+  location: 'База отдыха «Ёлки», рядом с г. Чусовой',
+  durationHours: 8,
+  buttonLabel: 'Добавить в календарь',
+  googleLabel: 'Google Calendar',
+  yandexLabel: 'Яндекс Календарь',
 };
 
 // ===========================
@@ -96,9 +114,9 @@ export const dressCodeData: DressCodeData = {
 /** RSVP: контакт для отображения при ошибке отправки */
 export const rsvpConfig: { contact: ContactInfo } = {
   contact: {
-    phone: '+7 (999) 123-45-67',
-    telegramUrl: 'https://t.me/example',
-    whatsappUrl: 'https://wa.me/79991234567',
+    phone: '',
+    telegramUrl: 'https://t.me/SyrexIsBack',
+    whatsappUrl: '',
   },
 };
 
@@ -109,10 +127,10 @@ export const rsvpConfig: { contact: ContactInfo } = {
 /** Карта: iframe Яндекс.Карт, кнопка маршрута, адрес, координаты */
 export const mapData: MapData = {
   iframeSrc:
-    'https://yandex.ru/map-widget/v1/?ll=37.284722%2C55.784444&z=15&l=map&pt=37.284722%2C55.784444%2Cpm2rdm',
-  address: 'Усадьба «Архангельское», Московская область, Красногорский район',
-  coordinates: { lat: 55.784444, lng: 37.284722 },
-  navigationUrl: 'https://yandex.ru/maps/?rtext=~55.784444%2C37.284722&rtt=auto',
+    'https://yandex.ru/map-widget/v1/?ll=57.857352%2C58.308982&z=16&l=map&pt=57.857352%2C58.308982%2Cpm2rdm',
+  address: 'База отдыха «Ёлки», рядом с г. Чусовой',
+  coordinates: { lat: 58.308982, lng: 57.857352 },
+  navigationUrl: 'https://yandex.ru/maps/?rtext=~58.308982%2C57.857352&rtt=auto',
 };
 
 // ===========================
@@ -121,17 +139,17 @@ export const mapData: MapData = {
 
 /** Footer: минимальный «Имена · Год» */
 export const footerData: FooterData = {
-  text: 'Анна & Михаил · 2026',
+  text: 'Григорий & Полина · 2026',
 };
 
 // ===========================
 // Порядок секций
 // ===========================
 
-/** Порядок секций на странице (8 секций) */
+/** Порядок секций на странице */
 export const sectionOrder: SectionConfig[] = [
   { id: 'hero', title: null },
-  { id: 'countdown', title: null }, // без заголовка
+  { id: 'countdown', title: 'До нашего дня' },
   { id: 'info', title: 'О торжестве' },
   { id: 'timeline', title: 'Как пройдёт наш день' },
   { id: 'dresscode', title: 'Дресс-код' },

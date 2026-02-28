@@ -44,7 +44,11 @@ export function AnimatedSection({
   const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    setIsHydrated(true);
+    const raf = requestAnimationFrame(() => {
+      setIsHydrated(true);
+    });
+
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   // prefers-reduced-motion or SSR: render plain div, content immediately visible

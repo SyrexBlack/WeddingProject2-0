@@ -34,6 +34,8 @@ export interface HeroData {
   venue: string;
   /** Поэтичная фраза-приглашение */
   invitationPhrase: string;
+  /** Текст персонализированного приветствия */
+  personalizedGreeting: string;
   /** Путь к фото для десктопа */
   backgroundImageDesktop: string;
   /** Путь к фото для мобильных */
@@ -80,7 +82,6 @@ export interface TimelineEvent {
   title: string;
   /** Краткое описание этапа (1 строка) */
   description?: string;
-  // Маппинг иконок — в компоненте, не в данных
 }
 
 // ===========================
@@ -101,6 +102,28 @@ export interface DressCodeData {
   description: string;
   /** Палитра из 4–5 цветовых образцов */
   palette: ColorSwatch[];
+}
+
+// ===========================
+// Calendar
+// ===========================
+
+/** Данные календарной интеграции */
+export interface CalendarData {
+  /** Название события */
+  eventTitle: string;
+  /** Описание события */
+  description: string;
+  /** Локация события */
+  location: string;
+  /** Длительность события в часах */
+  durationHours: number;
+  /** Лейбл CTA на добавление в календарь */
+  buttonLabel: string;
+  /** Лейбл ссылки на Google Calendar */
+  googleLabel: string;
+  /** Лейбл ссылки на Яндекс Календарь */
+  yandexLabel: string;
 }
 
 // ===========================
@@ -178,6 +201,7 @@ export interface WeddingData {
   infoCards: InfoCard[];
   timeline: TimelineEvent[];
   dressCode: DressCodeData;
+  calendar: CalendarData;
   rsvp: {
     contact: ContactInfo;
   };
@@ -193,6 +217,6 @@ export interface WeddingData {
 export interface SectionConfig {
   /** Идентификатор секции */
   id: SectionId;
-  /** Заголовок секции (null для countdown — без заголовка) */
+  /** Заголовок секции (null для countdown и hero/footer) */
   title: string | null;
 }

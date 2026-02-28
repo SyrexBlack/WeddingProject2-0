@@ -11,17 +11,15 @@
   --color-alexandrite-medium: rgba(89, 140, 116, 0.3);
   --color-chocolate: #3C1518;
   --color-chocolate-light: rgba(60, 21, 24, 0.6);
-  --color-cream: #FFF8F0;
-  --color-cream-dark: #FFF5E9;
-  --color-sand: #F5E6D3;
-  --color-sage: rgba(89, 140, 116, 0.06);
+  --color-cream: #f4ecdf;
+  --color-cream-dark: #eee3d2;
+  --color-sand: #e8d5bf;
+  --color-sage: rgba(89, 140, 116, 0.12);
   --color-champagne: #D4C5A9;
   --color-powder: #E8D5C4;
   --color-error: #C4463A;
 
-  /* Font families — next/font sets --font-calmius on <html> via class,
-     so we reference it here for Tailwind utility generation (font-calmius class).
-     The Cormorant Garamond font-family is injected by next/font automatically. */
+  /* Font families */
   --font-calmius: "Cormorant Garamond", serif;
   --font-accent: "Cormorant Garamond", serif;
 
@@ -33,7 +31,6 @@
   --shadow-cardHover: 0 4px 24px rgba(60, 21, 24, 0.1);
 }
 
-/* Custom utility for max-w-content (768px) — not natively supported as theme token in TW v4 */
 @utility max-w-content {
   max-width: 768px;
 }
@@ -41,8 +38,6 @@
 /* ===========================
    Base Styles
    =========================== */
-/* scroll-behavior removed — custom smoothScrollTo in SectionDots handles scroll animation */
-
 body {
   background-color: var(--color-cream);
   color: var(--color-chocolate);
@@ -52,7 +47,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 /* ===========================
    Selection Colors
@@ -89,9 +83,6 @@ body {
 
 /* ===========================
    Reduced Motion Accessibility
-   Disable all CSS transitions and animations
-   for users who prefer reduced motion.
-   (Framer Motion handled separately via useReducedMotion)
    =========================== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -107,9 +98,51 @@ body {
    =========================== */
 .section-cream { background-color: var(--color-cream); }
 .section-sand { background-color: var(--color-sand); }
-.section-sage { background-color: rgba(89, 140, 116, 0.06); }
+.section-sage { background-color: var(--color-sage); }
 
 /* ===========================
    Accent Text Utility
    =========================== */
 .text-accent-italic { font-style: italic; letter-spacing: 0.05em; }
+
+/* ===========================
+   Mobile Quick Actions
+   =========================== */
+:root {
+  --safe-bottom-offset: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+.bottom-safe-offset {
+  bottom: var(--safe-bottom-offset);
+}
+
+.pb-safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.quick-action-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  min-height: 3.25rem;
+  width: 100%;
+  border-radius: 0.9rem;
+  color: rgba(60, 21, 24, 0.75);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.quick-action-btn:hover,
+.quick-action-btn:active {
+  background-color: rgba(89, 140, 116, 0.11);
+  color: rgba(60, 21, 24, 0.95);
+}
+
+.quick-action-btn:focus-visible {
+  outline: 2px solid rgba(89, 140, 116, 0.5);
+  outline-offset: 2px;
+}

@@ -4,6 +4,7 @@ interface SectionHeadingProps {
   children: ReactNode;
   subtitle?: string;
   className?: string;
+  tone?: 'default' | 'light';
 }
 
 /**
@@ -11,37 +12,69 @@ interface SectionHeadingProps {
  * Per CONTEXT.md: текст + декоративные линии по бокам с утончением к краям.
  * Uses CSS gradient for tapering effect: transparent → alexandrite-light → transparent.
  */
-export function SectionHeading({ children, subtitle, className = '' }: SectionHeadingProps) {
+export function SectionHeading({
+  children,
+  subtitle,
+  className = '',
+  tone = 'default',
+}: SectionHeadingProps) {
+  const isLight = tone === 'light';
+  const lineCenterColor = isLight ? 'rgba(255, 255, 255, 0.5)' : 'rgba(89, 140, 116, 0.4)';
+
   return (
-    <div className={`flex flex-col items-center ${className}`}>
-      <div className="flex items-center gap-4 w-full">
-        {/* Left decorative line — tapers from left edge */}
+    <div className={`flex flex-col items-center text-center ${className}`}>
+      <div className="sm:hidden w-full max-w-xs mb-3 mx-auto">
         <div
-          className="flex-grow h-[1.5px]"
+          className="h-[1.5px]"
           style={{
-            background: 'linear-gradient(to right, transparent, rgba(89, 140, 116, 0.4))',
-          }}
-          aria-hidden="true"
-        />
-
-        {/* Heading text */}
-        <h2 className="text-3xl sm:text-4xl text-chocolate font-calmius tracking-wide whitespace-nowrap">
-          {children}
-        </h2>
-
-        {/* Right decorative line — tapers to right edge */}
-        <div
-          className="flex-grow h-[1.5px]"
-          style={{
-            background: 'linear-gradient(to left, transparent, rgba(89, 140, 116, 0.4))',
+            background: `linear-gradient(to right, transparent, ${lineCenterColor}, transparent)`,
           }}
           aria-hidden="true"
         />
       </div>
 
-      {/* Optional subtitle */}
+      <div className="flex items-center justify-center gap-4 w-full text-center">
+        <div
+          className="hidden sm:block flex-grow h-[1.5px]"
+          style={{
+            background: `linear-gradient(to right, transparent, ${lineCenterColor})`,
+          }}
+          aria-hidden="true"
+        />
+
+        <h2
+          className={`text-3xl sm:text-4xl font-calmius tracking-wide leading-tight max-w-[15ch] sm:max-w-none ${
+            isLight ? 'text-white' : 'text-chocolate'
+          }`}
+        >
+          {children}
+        </h2>
+
+        <div
+          className="hidden sm:block flex-grow h-[1.5px]"
+          style={{
+            background: `linear-gradient(to left, transparent, ${lineCenterColor})`,
+          }}
+          aria-hidden="true"
+        />
+      </div>
+
+      <div className="sm:hidden w-full max-w-xs mt-3 mx-auto">
+        <div
+          className="h-[1.5px]"
+          style={{
+            background: `linear-gradient(to right, transparent, ${lineCenterColor}, transparent)`,
+          }}
+          aria-hidden="true"
+        />
+      </div>
+
       {subtitle && (
-        <p className="text-sm text-chocolate/50 italic mt-2 text-center tracking-wide">
+        <p
+          className={`text-sm italic mt-3 text-center tracking-wide max-w-md ${
+            isLight ? 'text-white/80' : 'text-chocolate/60'
+          }`}
+        >
           {subtitle}
         </p>
       )}

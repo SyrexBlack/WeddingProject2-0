@@ -1,4 +1,5 @@
 import { SectionDots } from '@/components/SectionDots';
+import { MobileQuickActions } from '@/components/MobileQuickActions';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { InfoSection } from '@/components/sections/InfoSection';
 import { DresscodeSection } from '@/components/sections/DresscodeSection';
@@ -9,56 +10,68 @@ import { MapSection } from '@/components/sections/MapSection';
 import { RSVPSection } from '@/components/sections/RSVPSection';
 import { SectionDivider } from '@/components/ui/SectionDivider';
 
+interface HomePageProps {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+}
 
-export default function Home() {
+function normalizeGuestParam(value: string | string[] | undefined): string {
+  const rawValue = Array.isArray(value) ? value[0] : value;
+
+  if (!rawValue) {
+    return '';
+  }
+
+  return rawValue
+    .trim()
+    .replace(/\s+/g, ' ')
+    .slice(0, 50);
+}
+
+export default async function Home({ searchParams }: HomePageProps) {
+  const params = searchParams ? await searchParams : undefined;
+  const guestName = normalizeGuestParam(params?.guest);
+
   return (
     <>
       <SectionDots />
-      <main>
-        {/* 1. Hero section */}
-        <HeroSection />
+      <MobileQuickActions />
+      <main className="pb-[calc(5.5rem+env(safe-area-inset-bottom))] lg:pb-0">
+        <HeroSection guestName={guestName} />
 
-        {/* 2. Countdown — live countdown to wedding date */}
         <div className="section-cream">
           <CountdownSection />
         </div>
 
         <SectionDivider variant="leaf" />
 
-        {/* 3. Info — «О торжестве» */}
         <div className="section-sand">
           <InfoSection />
         </div>
 
         <SectionDivider variant="dot" />
 
-        {/* 4. Timeline — «Как пройдёт наш день» */}
         <div className="section-cream">
           <TimelineSection />
         </div>
 
         <SectionDivider variant="leaf" />
 
-        {/* 5. Dress code — «Дресс-код» */}
         <div className="section-sage">
           <DresscodeSection />
         </div>
 
         <SectionDivider variant="dot" />
 
-        {/* 6. RSVP — «Ждём вашего ответа» */}
         <div className="section-cream">
-          <RSVPSection />
+          <RSVPSection guestName={guestName} />
         </div>
 
         <SectionDivider variant="line" />
 
-        {/* 7. Map — «Место проведения» */}
         <div className="section-sand">
           <MapSection />
         </div>
 
-        {/* 8. Footer */}
         <FooterSection />
       </main>
     </>

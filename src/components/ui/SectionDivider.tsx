@@ -9,7 +9,7 @@ interface SectionDividerProps {
  */
 export function SectionDivider({ variant = 'leaf', className = '' }: SectionDividerProps) {
   return (
-    <div className={`py-4 flex justify-center ${className}`} aria-hidden="true">
+    <div className={`py-5 flex justify-center ${className}`} aria-hidden="true">
       {variant === 'leaf' && <LeafDivider />}
       {variant === 'dot' && <DotDivider />}
       {variant === 'line' && <LineDivider />}
@@ -26,7 +26,7 @@ function LeafDivider() {
       viewBox="0 0 120 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="opacity-40"
+      className="opacity-55"
     >
       {/* Left branch */}
       <path
@@ -65,7 +65,7 @@ function LeafDivider() {
 /** Three small dots in a row */
 function DotDivider() {
   return (
-    <div className="flex items-center gap-3 opacity-40">
+    <div className="flex items-center gap-3 opacity-55">
       <span className="block w-1.5 h-1.5 rounded-full bg-alexandrite" />
       <span className="block w-2 h-2 rounded-full bg-alexandrite" />
       <span className="block w-1.5 h-1.5 rounded-full bg-alexandrite" />
@@ -76,7 +76,7 @@ function DotDivider() {
 /** Thin gradient line with a diamond in the center */
 function LineDivider() {
   return (
-    <div className="flex items-center gap-0 w-48 opacity-40">
+    <div className="flex items-center gap-0 w-48 opacity-55">
       <div
         className="flex-grow h-px"
         style={{
