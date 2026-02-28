@@ -9,7 +9,7 @@ export function OrganizerSection() {
   return (
     <AnimatedSection id="organizer" className="py-16 md:py-20">
       <Container>
-        <SectionHeading subtitle="Если нужны детали по логистике и рассадке">Контакт организатора</SectionHeading>
+        <SectionHeading>Контакт организатора</SectionHeading>
 
         <Card className="mt-8 max-w-lg mx-auto text-center">
           <p className="text-base md:text-lg text-chocolate/70">По всем организационным вопросам</p>
