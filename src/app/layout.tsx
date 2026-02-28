@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { calmius } from '@/lib/fonts';
 import './globals.css';
 
+const ogImageUrl = '/api/og?v=20260301';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://елкичус.рф'),
   title: 'Григорий & Полина — Приглашение на свадьбу',
@@ -13,10 +15,10 @@ export const metadata: Metadata = {
     locale: 'ru_RU',
     images: [
       {
-        url: '/api/og',
+        url: ogImageUrl,
         width: 1200,
         height: 630,
-        alt: 'Григорий & Полина — Приглашение на свадьбу',
+        alt: 'Григорий и Полина — Приглашение на свадьбу',
       },
     ],
   },
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Григорий & Полина — Приглашение на свадьбу',
     description: '16 мая 2026 · База отдыха «Ёлки»',
-    images: ['/api/og'],
+    images: [ogImageUrl],
   },
 };
 
